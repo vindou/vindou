@@ -1,8 +1,7 @@
-@font-face {
-  font-family: Ciutadella;
-    src: url(https://db.onlinewebfonts.com/c/0d0e90eb107486ca06f62c39a3c15f4e?family=CiutadellaW04-Lt);
-}
+@import url(https://db.onlinewebfonts.com/c/0d0e90eb107486ca06f62c39a3c15f4e?family=CiutadellaW04-Lt);
 
+@font-face {font-family: "CiutadellaW04-Lt"; src: url("https://db.onlinewebfonts.com/t/0d0e90eb107486ca06f62c39a3c15f4e.eot"); src: url("https://db.onlinewebfonts.com/t/0d0e90eb107486ca06f62c39a3c15f4e.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/0d0e90eb107486ca06f62c39a3c15f4e.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/0d0e90eb107486ca06f62c39a3c15f4e.woff") format("woff"), url("https://db.onlinewebfonts.com/t/0d0e90eb107486ca06f62c39a3c15f4e.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/0d0e90eb107486ca06f62c39a3c15f4e.svg#CiutadellaW04-Lt") format("svg"); 
+}
 p {
-  font-family: Ciutadella;
+  font-family: "CiutadellaW04-Lt";
 }
