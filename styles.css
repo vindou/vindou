@@ -16,6 +16,10 @@ body {
   margin-top: 350px;
 }
 
+h1{
+  font-size: 50px;
+}
+
 .githubicon {
   width: 25%;
   height: 25%;
