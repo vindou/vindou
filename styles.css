@@ -21,13 +21,13 @@ h1{
 }
 
 .githubicon {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 
 .githubbutton {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border: none;
   opacity: 0;
 }
