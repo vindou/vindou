@@ -27,4 +27,6 @@ h1{
 
 .githubbutton {
   width: 25%;
+  border: none;
+  opacity: 1;
 }
