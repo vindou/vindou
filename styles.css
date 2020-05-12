@@ -23,6 +23,7 @@ h1{
 .githubicon {
   width: 200px;
   height: 200px;
+  opacity: 1;
 }
 
 .githubbutton {
