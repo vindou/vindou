@@ -1,5 +1,7 @@
 @import url(https://db.onlinewebfonts.com/c/6cfda2958e863ef8dc3c6ba3dd4a6ae2?family=CiutadellaW04-Bold);
 
+@import url(https://db.onlinewebfonts.com/c/8314503f68529dc0960a6e066fc3a3c5?family=Ciutadella+Slab);
+
 @font-face {font-family: "CiutadellaW04-Bold"; 
   src: url("https://db.onlinewebfonts.com/t/6cfda2958e863ef8dc3c6ba3dd4a6ae2.eot"); 
   src: url("https://db.onlinewebfonts.com/t/6cfda2958e863ef8dc3c6ba3dd4a6ae2.eot?#iefix") 
@@ -7,6 +9,15 @@
   format("woff2"), url("https://db.onlinewebfonts.com/t/6cfda2958e863ef8dc3c6ba3dd4a6ae2.woff") 
   format("woff"), url("https://db.onlinewebfonts.com/t/6cfda2958e863ef8dc3c6ba3dd4a6ae2.ttf") 
   format("truetype"), url("https://db.onlinewebfonts.com/t/6cfda2958e863ef8dc3c6ba3dd4a6ae2.svg#CiutadellaW04-Bold") 
+  format("svg"); 
+}
+@font-face {font-family: "Ciutadella Slab"; 
+  src: url("https://db.onlinewebfonts.com/t/8314503f68529dc0960a6e066fc3a3c5.eot"); 
+  src: url("https://db.onlinewebfonts.com/t/8314503f68529dc0960a6e066fc3a3c5.eot?#iefix") 
+  format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/8314503f68529dc0960a6e066fc3a3c5.woff2") 
+  format("woff2"), url("https://db.onlinewebfonts.com/t/8314503f68529dc0960a6e066fc3a3c5.woff") 
+  format("woff"), url("https://db.onlinewebfonts.com/t/8314503f68529dc0960a6e066fc3a3c5.ttf") 
+  format("truetype"), url("https://db.onlinewebfonts.com/t/8314503f68529dc0960a6e066fc3a3c5.svg#Ciutadella Slab") 
   format("svg"); 
 }
 
@@ -56,7 +67,7 @@ a {
 
 dt {
   margin: 30px 0;
-  font-family: "CiutadellaW04-Bold";
+  font-family: "Ciutadella Slab";
   margin-top: 50px;
 }
 
