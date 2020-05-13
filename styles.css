@@ -39,7 +39,7 @@ a {
 .icon {
   width: 25px;
   height: 25px;
-  color: black;
+  color: white;
 }
 
 .link-item:hover .icon {
@@ -50,7 +50,7 @@ a {
 }
 
 .link-text {
-  color: black !important;
+  color: white !important;
   text-decoration: none;
   text-decoration-color: none;
 
@@ -71,3 +71,6 @@ dt {
   margin-top: 50px;
 }
 
+html {
+  background-color: rgb(44,47,51);
+}
