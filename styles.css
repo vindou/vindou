@@ -80,14 +80,14 @@ dt {
 
 .wrapper {
   height: auto !important;
-  height: 100%;
+  height: auto;
   margin: 0 auto; 
   overflow: hidden;
 }
 
 .bg {
   position: absolute;
-  min-height: 100% !important;
-  width: 100%;
+  min-height: auto !important;
+  width: auto;
   z-index: 0;
 }
