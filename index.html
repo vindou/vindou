@@ -6,9 +6,32 @@
   <link href="https://db.onlinewebfonts.com/c/8314503f68529dc0960a6e066fc3a3c5?family=Ciutadella+Slab" rel="stylesheet" type="text/css"/>
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="assets/favicon-3.ico"/>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="jquery.interactive_bg.js"></script>
+
+  <script>
+	  $(document).ready(function(){
+       $(".bg").interactive_bg();
+       $("#btns").interactive_bg({
+         strength: 10,
+         scale: 1.15,
+         contain: false,
+         wrapContent: true
+       });
+		});
+		
+		$(window).resize(function() {
+		  $(".wrapper > .ibg-bg").css({
+		    width: $(window).outerWidth(),
+		    height: $(window).outerHeight()
+		  })
+		})
+		
+	</script>
 </head>
 <html>
   <body>
+    <div class="wrapper bg" data-ibg-bg="assets/bgv2.png"></div>
     <h1 class = "intro">Hi, I'm Chang.</h1>
     <dl>
       <dt>
