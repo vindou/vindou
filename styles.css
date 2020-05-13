@@ -20,6 +20,10 @@ body {
 h1{
   font-size: 30px;
 }
+
+a {
+  text-decoration: none;
+}
 .icon {
   width: 25px;
   height: 25px;
