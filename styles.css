@@ -76,18 +76,6 @@ dt {
   font-family: "Ciutadella Slab";
 }
 
-
-
-.wrapper {
-  height: auto !important;
-  height: auto;
-  margin: 0 auto; 
-  overflow: hidden;
-}
-
-.bg {
-  position: absolute;
-  min-height: auto !important;
-  width: auto;
-  z-index: 0;
+html {
+  background-image: "assets/bgv2.png";
 }
