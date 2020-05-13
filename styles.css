@@ -34,7 +34,7 @@ h1{
 }
 
 .intro:hover {
-  color: rgb(255, 201, 119);
+  color: rgb(255, 154, 1);
   transition-duration: 0.3s;
 }
 
@@ -72,9 +72,8 @@ a {
 }
 
 dt {
-  margin: 15px 0;
+  margin: 13px 0;
   font-family: "Ciutadella Slab";
-  margin-top: 50px;
 }
 
 html {
