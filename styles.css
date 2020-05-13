@@ -30,7 +30,7 @@ h1{
   color: rgb(163, 244, 255) !important;
   transform: translateX(-1.5px) rotate(-10deg);
 
-  transition-duration: 0.7s;
+  transition-duration: 0.5s;
 }
 
 .link-text {
@@ -44,6 +44,8 @@ h1{
   color: rgb(163, 244, 255)  !important;
   text-decoration: none;
   text-decoration-color: none;
+
+  transition-duration: 0.5s;
 
 }
 
