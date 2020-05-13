@@ -21,6 +21,10 @@ h1{
 }
 
 .link-item:hover .icon {
-  color: white !important;
+  color: rgb(163, 244, 255) !important;
   transform: translateX(-1.5px) rotate(-10deg);
+}
+
+.link-text {
+  color: black !important;
 }
