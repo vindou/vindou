@@ -33,6 +33,11 @@ h1{
   font-size: 45px;
 }
 
+.intro:hover {
+  color: rgb(255, 201, 119);
+  transition-duration: 0.3s;
+}
+
 a {
   text-decoration: none;
   font-size: 27px;
@@ -67,7 +72,7 @@ a {
 }
 
 dt {
-  margin: 30px 0;
+  margin: 15px 0;
   font-family: "Ciutadella Slab";
   margin-top: 50px;
 }
