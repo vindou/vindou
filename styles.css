@@ -76,6 +76,6 @@ dt {
   font-family: "Ciutadella Slab";
 }
 
-html {
-  background-image: "assets/bgv2.png";
+body {
+  background-image: url('assets/bgv2.png');
 }
