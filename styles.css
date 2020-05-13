@@ -35,7 +35,7 @@ a {
   color: rgb(97, 131, 120) !important;
   transform: translateX(-1.5px) rotate(-10deg);
 
-  transition-duration: 0.5s;
+  transition-duration: 0.75s;
 }
 
 .link-text {
@@ -50,7 +50,7 @@ a {
   text-decoration: none;
   text-decoration-color: none;
 
-  transition-duration: 0.5s;
+  transition-duration: 0.75s;
 
 }
 
