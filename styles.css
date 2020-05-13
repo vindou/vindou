@@ -83,6 +83,11 @@ body {
 }
 
 .box {
-  border: 2px rgb(32, 35, 37);
+  border: 15px;
+  border-color: rgb(32, 35, 37);
   
+}
+
+.box-content {
+  font-family: "Ciutadella Slab";
 }
