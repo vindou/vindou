@@ -78,4 +78,5 @@ dt {
 
 body {
   background-image: url('assets/bgv2.png');
+  background-repeat: no-repeat;
 }
