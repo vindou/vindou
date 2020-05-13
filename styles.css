@@ -29,4 +29,5 @@ h1{
 
 .link-text {
   color: black !important;
+  text-decoration: none;
 }
