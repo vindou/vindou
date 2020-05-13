@@ -30,5 +30,6 @@ h1{
   width: 75px;
   height: 75px;
   border: none;
+  border-radius:50%;
   opacity: 1;
 }
