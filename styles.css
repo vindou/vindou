@@ -20,18 +20,3 @@ h1{
   font-size: 50px;
 }
 
-.githubicon {
-  width: 35px;
-  height: 35px;
-  opacity: 1;
-}
-
-.githubbutton {
-  width: 35px;
-  height: 35px;
-  border: none;
-  border-radius:50%;
-  opacity: 1;
-  background-color: white;
-}
-
