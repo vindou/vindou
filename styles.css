@@ -32,7 +32,7 @@ a {
 }
 
 .link-item:hover .icon {
-  color: rgb(163, 244, 255) !important;
+  color: rgb(97, 131, 120) !important;
   transform: translateX(-1.5px) rotate(-10deg);
 
   transition-duration: 0.5s;
@@ -46,7 +46,7 @@ a {
 }
 
 .link-text:hover {
-  color: rgb(163, 244, 255)  !important;
+  color: rgb(97, 131, 120)  !important;
   text-decoration: none;
   text-decoration-color: none;
 
