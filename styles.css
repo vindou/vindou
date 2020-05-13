@@ -20,3 +20,7 @@ h1{
   font-size: 50px;
 }
 
+.link-item:hover .icon {
+  color: white !important;
+  transform: translateX(-1.5px) rotate(-10deg);
+}
