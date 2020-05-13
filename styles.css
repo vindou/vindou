@@ -81,3 +81,8 @@ body {
   background-image: url('assets/bgv2.png');
   background-repeat: repeat;
 }
+
+.box {
+  border: 2px rgb(44, 47, 51);
+  
+}
