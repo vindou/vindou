@@ -24,6 +24,7 @@ h1{
 a {
   text-decoration: none;
   font-size: 27px;
+  vertical-align: top;
 }
 .icon {
   width: 25px;
