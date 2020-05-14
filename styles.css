@@ -82,14 +82,6 @@ body {
   background-repeat: repeat;
 }
 
-div {
-  border: 15px;
-  border-color: rgb(32, 35, 37);
-  padding: 30px;
-  margin-left: 300px;
-  margin-top: 350px;
-  
-}
 
 .box-content {
   font-family: "Ciutadella Slab";
