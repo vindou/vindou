@@ -82,6 +82,9 @@ body {
   background-repeat: repeat;
 }
 
+.box-title{
+  color: rgb(255, 160, 35)
+}
 
 .box-content {
   font-family: "Ciutadella Slab";
