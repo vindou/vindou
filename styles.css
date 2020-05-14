@@ -86,6 +86,14 @@ body {
   color: rgb(255, 160, 35)
 }
 
+.box-title:hover {
+  color: rgb(255,255,255);
+  transition-duration: 0.5s;
+  cursor: default;
+
+
+}
+
 .box-content {
   font-family: "Ciutadella Slab";
   font-size: 27px;
