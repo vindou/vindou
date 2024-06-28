@@ -52,14 +52,14 @@
   .container {
     margin-top: 5%;
     margin-bottom: 5%;
-    width: 80%;
+    width: 75%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
 @media (min-width: 550px) {
   .container {
-    width: 40%; }
+    width: 33.333%; }
   .column,
   .columns {
     margin-left: 4%; }
