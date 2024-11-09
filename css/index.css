@@ -43,7 +43,7 @@ h2 {
   align-items: center;
 }
 
-h2 hr {
+hr {
   flex-grow: 1;
   margin-left: 20px;
   height: 1px;
