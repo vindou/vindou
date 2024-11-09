@@ -46,7 +46,7 @@ h2 {
 hr {
   flex-grow: 1;
   margin-left: 20px;
-  height: 1px;
+  height: 2px;
   background-color: rgb(70, 70, 70);
   border: none;
 }
