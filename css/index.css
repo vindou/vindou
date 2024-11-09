@@ -192,6 +192,13 @@ a:hover { text-decoration: underline;}
   align-items: center;
 }
 
+img {
+  border-radius: 3px;
+  width: 100%;
+  margin:auto;
+  margin-top: 3px;
+}
+
 .project-media * {
   border-radius: 3px;
   width: 100%;
