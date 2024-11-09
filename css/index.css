@@ -12,8 +12,8 @@ body {
   padding: 0;
   font-family: 'Inter', serif;
   font-weight: 300;
-  background-color: rgb(20, 20, 20);
-  color: rgb(200, 200, 200);
+  background-color: rgb(230, 230, 230);
+  color: rgb(20, 20, 20);
 }
 
 button {
@@ -24,8 +24,9 @@ button {
 }
 
 .light {
-  background-color: rgb(230, 230, 230);
-  color: rgb(20, 20, 20);
+  background-color: rgb(20, 20, 20);
+  color: rgb(200, 200, 200);
+  
 }
 
 h1 {
