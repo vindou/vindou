@@ -1,52 +1,195 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="normalize.css">
-        <link rel="stylesheet" href="skeleton.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@666&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
-        <style>
-            h4 {
-            font-family: "Inter";
-            }
-            h5 {
-                font-family: "Inter";
-            }
-        </style>
-        <title>
-            Boyuan Chang
-        </title>
-    </head>
+---
+layout: default
+title: joso
+---
 
-    <body>
-        <div class="one.column">
-            <div class="container">
-                <div class="row">
-                    <h4><b>1. Id</b></h4>
-                    <h5>I'm Chang and I'm from San Francisco, California.</h5>
-                </div>
-                <div class="row">
-                    <h4><b>2. Ego</b></h4>
-                    <h5>Here's what I'm working on.<br>
-                    <li style="margin-left: 5%;">Founded an efficiency-oriented engineering organization
-                    at Purdue University. Current projects range from designing racecars to supersonic UAVs.</li>
-                    <li style="margin-left: 5%;">Serving as an aerodynamics and composite subteam member on Purdue's 
-                    Baja SAE team. Focused on designing and fabricating the outerbody of an offterrain racing vehicle.
-                    </li>
-                    <li style="margin-left: 5%;">Collaborated with peers to start a line of open source lifestyle products
-                    focused on showcasing the fusion of artistic and technical expertises.
-                    </li></h5>
-                </div>
-                <div class="row">
-                    <h4><b>3. Superego</b></h4>
-                    <h5>Undergraduate at Purdue University. Studying ME and CS. Minoring in ECE and Math.
-                    </h5>
-                </div>
-            </div>
-        </div>
+<div class="section">
+  <div class="subsection">
+    <button onclick="dark()">
+      <div class="title-img">
+          <img src="/media/img/headshot.jpeg" alt="me!">
+          <script>
+            function dark() {
+              let element = document.body;
+              element.classList.toggle("light");
+            }
+            </script>
+      </div>
+    </button>
+    <div class="text-container title-text">
+      <h1>john so</h1>
+      <p><i>johnso &lt;at&gt; stanford &lt;dot&gt; edu</i></p>
+      <p> &#123;
+        <!-- <a target="_blank" href="/media/pdf/johnso_2023.pdf">resume</a> | -->
+        <a target="_blank" href="https://github.com/johnrso">github</a> |
+        <a target="_blank" href="https://twitter.com/johnrso_">twitter</a> |
+        <a target="_blank" href="https://www.linkedin.com/in/johnianrso/">linkedin</a> |
+        <a target="_blank" href="/media/pdf/johnso_2024.pdf">cv</a> |
+        <a target="_blank" href="https://scholar.google.com/citations?user=r0vGtTwAAAAJ">scholar</a>
+      &#125; </p>
+    </div>
+  </div>
+  <div class="text-container">
+    <p>
+      I am an MS CS at <a target="_blank" href="https://www.stanford.edu/">Stanford University</a>, where I'm fortunate to be advised by
+      <a target="_blank" href="https://shurans.github.io/">Shuran Song</a> as a member of Stanford <a target="_blank" href="https://real.stanford.edu/">REAL</a> (Robotics and Embodied Artificial Intelligence Lab).
+    </p>
+    <br>
+    <p>
+      I received my BS EECS from <a target="_blank" href="https://engineering.berkeley.edu/">UC Berkeley</a>, where I was advised by
+      <a target="_blank" href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>,
+      <a target="_blank" href="https://stepjam.github.io/">Stephen James</a>, and
+      <a target="_blank" href="https://xingyu-lin.github.io/">Xingyu Lin</a> as a part of Berkeley
+      <a target="_blank" href="https://rll.berkeley.edu/">RLL</a> (Robot Learning Lab).
+      I most recently spent time as an AI Resident at <a target="_blank" href="https://www.1x.tech/about">1X</a>, where I focused on training foundation policy models for humanoid robots.
+    </p>
+  </div>
+</div>
+<div class="section">
+  <div class="text-container">
+    <h2>research<hr></h2>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <p>
+        My dream is for robots to become an everyday household occurrence; an important step is to enable robots to quickly adapt prior knowledge to new scenes or tasks. Towards this, I aim to answer two questions:
+      </p>
+      <ol>
+        <li>How do we pre-train using out-of-distribution data, such as cross-embodiment and actionless data?</li>
+        <li>How do we scale in-domain data collection to pre-train multi-task and generalizable policies?</li>
+      </ol>
+      <p>
+        My recent interests are in capturing useful priors from large unstructured datasets for robot learning, such as motion and skills. Long term, I hope to leverage perspectives from cognitive science to inform how robots can learn from and like humans.
+      </p>
+    </div>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <h3>Any-point Trajectory Modeling for Policy Learning</h3>
+      <p>
+        <a target="_blank" href="https://alvinwen428.github.io/">Chuan Wen</a>*,
+        <a target="_blank" href="https://xingyu-lin.github.io/">Xingyu Lin</a>*,
+        <b><u>John So</u></b>*,
+        <a target="_blank" href="https://www.cse.cuhk.edu.hk/~qdou/">Qi Dou</a>,
+        <a target="_blank" href="https://ck-kai.github.io/">Kai Chen</a>,
+        <a target="_blank" href="https://yang-gao.weebly.com/">Yang Gao</a>,
+        <a target="_blank" href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>
+      </p>
+      <p>
+        We learn to generate trajectories of arbitrary points from large actionless video datasets and condition a policy on these learned point trajectories, enabling sample-efficient policy learning and positive cross-embodiment transfer.
+      </p>
+      <p>
+        <span class="badge conference"><b>RSS 2024</b></span>
+        &#123; <a target="_blank" href="/media/pdf/atm.pdf">paper</a> |
+        <a target="_blank" href="https://arxiv.org/abs/2401.00025" >arXiv</a> |
+        <a target="_blank" href="https://xingyu-lin.github.io/atm/">website</a> |
+        <a target="_blank" href="https://github.com/Large-Trajectory-Model/ATM">code</a> &#125;
+      </p>
+    </div>
+    <a target="_blank" href="https://xingyu-lin.github.io/atm/">
+      <div class="project-media">
+        <video src="/media/vid/atm.mp4" autoplay muted inline loop>
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </a>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <h3>SpawnNet: Learning Generalizable Visuomotor Skills from Pre-trained Networks</h3>
+      <p>
+        <a target="_blank" href="https://xingyu-lin.github.io/">Xingyu Lin</a>*,
+        <b><u>John So</u></b>*,
+        <a target="_blank" href="https://sashwat-mahalingam.github.io">Sashwat Mahalingam</a>,
+        <a target="_blank" href="https://fangchenliu.github.io">Fangchen Liu</a>,
+        <a target="_blank" href="https://people.eecs.berkeley.edu/~pabbeel/">Pieter Abbeel</a>
+      </p>
+      <p>
+        We propose a novel method to adapt dense features from pre-trained vision backbones for sample-efficienct policy learning and generalization to unseen objects.
+      </p>
+      <p>
+        <span class="badge conference"><b>ICRA 2024</b></span>
+        &#123; <a target="_blank" href="/media/pdf/spawnnet.pdf">paper</a> |
+        <a target="_blank" href="https://arxiv.org/abs/2307.03567" >arXiv</a> |
+        <a target="_blank" href="https://xingyu-lin.github.io/spawnnet/">website</a> |
+        <a target="_blank" href="https://github.com/johnrso/spawnnet">code</a> &#125;
+      </p>
+    </div>
+    <a target="_blank" href="https://xingyu-lin.github.io/spawnnet/">
+      <div class="project-media">
+        <video src="/media/vid/spawnnet.mp4" autoplay muted inline loop>
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </a>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <h3>Sim-to-Real via Sim-to-Seg: End-to-end Off-road Autonomous Driving Without Real Data</h3>
+      <p>
+        <b><u>John So</u></b>*,
+        <a target="_blank" href="https://amberxie88.github.io/" >Amber Xie</a>*,
+        <a target="_blank" href="https://www-robotics.jpl.nasa.gov/who-we-are/people/sunggoo-jung/" >Sunggoo Jung</a>,
+        <a target="_blank" href="https://www-robotics.jpl.nasa.gov/who-we-are/people/jeffrey_edlund/" >Jeffrey Edlund</a>,
+        <a target="_blank" href="https://www-robotics.jpl.nasa.gov/who-we-are/people/rohan_thakker/" >Rohan Thakker</a>,
+        <a target="_blank" href="https://aliagha.site/" >Ali Agha-mohammadi</a>,
+        <a target="_blank" href="https://people.eecs.berkeley.edu/~pabbeel/" >Pieter Abbeel</a>,
+        <a target="_blank" href="https://stepjam.github.io/" >Stephen James</a>
+      </p>
+      <p>
+        We learn a segmentation model, train a navigation policy in simulation with RL in learned segmentation space, and deploy zero-shot to a real vehicle.
+      </p>
+      <p>
+        <span class="badge conference"><b>CoRL 2022</b></span>
+        &#123; <a target="_blank" href="/media/pdf/sim-to-seg.pdf" >paper</a> |
+        <a target="_blank" href="https://arxiv.org/abs/2210.14721">arXiv</a> |
+        <a target="_blank" href="https://sites.google.com/view/sim2segcorl2022/home">website</a> |
+        <a target="_blank" href="https://github.com/rll-research/sim2seg">code</a> &#125;
+      </p>
+    </div>
+    <a target="_blank" href="https://sites.google.com/view/sim2segcorl2022/home">
+      <div class="project-media">
+        <video src="/media/vid/sim2seg.mp4" autoplay muted inline loop>
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="section">
+  <div class="text-container">
+    <h2>teaching<hr></h2>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <p><a target="_blank" href="https://cs221.stanford.edu/">CS 221: Artificial Intelligence: Principles and Techniques</a> — Fall 2024</p>
+      <p><a target="_blank" href="https://cs229.stanford.edu/">CS 229: Machine Learning</a> — Winter 2024</p>
+      <p><a target="_blank" href="https://people.eecs.berkeley.edu/~jrs/189/">CS 189: Introduction to Machine Learning</a> — Spring 2023</p>
+      <p><a target="_blank" href="https://cs61a.org/">CS 61A: Structure and Interpretation of Computer Programs</a> — Fall 2022, Spring 2022 (Head TA), Fall 2021</p>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="text-container">
+    <h2>miscellaneous<hr></h2>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <p>
+        As an undergrad, I spent the majority of my time outside of research helping to build, organize, and
+        lead <a target="_blank" href="https://ml.berkeley.edu/" >Machine Learning at Berkeley (ML@B)</a>,
+        serving as the organization's president in Fall 2022. We presented a white paper about our structure
+        and initiatives at the NeurIPS 2022 <a target="_blank" href="https://sites.google.com/view/broadening-collaboration-in-ml/home">Broadening Research Collaborations in ML Workshop</a>;
+        you may find a preprint <a target="_blank" href="/media/pdf/built_to_last.pdf">here</a>.
+      </p>
+      <br>
+      <p>
+        I like to think about how to best teach, learn, and optimize for fulfillment; I'm attempting to keep a blog about my thoughts and experiences, which you can find <a href="/blog.html">here</a>. Shoot me an email or DM if you'd like to chat :&#41;
+      </p>
+    </div>
+  </div>
+</div>
 
-    </body>
-</html>
+<div class="section footer">
+  <p>last updated: {{ site.time | date_to_string }} | <a href="#">&#128640;</a></p>
+</div>

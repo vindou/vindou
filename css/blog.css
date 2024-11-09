@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  background-color: rgb(20, 20, 20);
+  color: rgb(200, 200, 200);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.light {
+  background-color: rgb(230, 230, 230);
+  color: rgb(20, 20, 20);
+}
+
+h1 {
+  line-height: 1.5;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 400;
+}
+
+h3 {
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.5;
+  color: rgb(190, 190, 190);
+  margin: 0px 0 2px 0;
+}
+
+hr {
+  border-color: rgb(125, 125, 125);
+  width: 100%;
+  margin: 20px 0 20px 0;
+}
+
+.light hr {
+  border-color: #ddd;
+}
+
+/* reduce the left margin of lists */
+ol, ul {
+  line-height: 1.5;
+  padding-left: 20px; /* Adjust the value as needed */
+  color: rgb(190, 190, 190);
+}
+
+li {
+  line-height: 1.5;
+  margin: 0;
+  color: rgb(190, 190, 190);
+}
+
+a {
+  color: rgb(146, 174, 255);
+  text-decoration: none;
+}
+
+.light p {
+  color: #222;
+}
+
+.light ol, .light ul {
+  color: #222;
+}
+
+.light li {
+  color: #222;
+}
+
+.light a {
+  /* lighter blue */
+  color: rgb(0, 0, 170);
+}
+
+a:hover { text-decoration: underline;}
+
+/* layout */
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flex-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.text-container {
+  flex: 100;
+  min-width: 250px;
+  display: flex;
+  text-align: justify;
+  text-justify: inter-word;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  margin:10px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.subsection {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+/* heading and footer */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+  margin-bottom: 15px;
+}
+
+.title-text {
+  margin-top: 5px;
+}
+
+/* media */
+
+.title-img {
+  height: 85px;
+  width: 85px;
+}
+
+.title-img * {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+.light .title-img * {
+  border: 1px solid #ddd;
+}
+
+.project-media {
+  margin: 10px;
+  width: 100%;
+  max-width: 165px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-media * {
+  border-radius: 3px;
+  width: 100%;
+  margin:auto;
+  margin-top: 3px;
+}
+
+/* papers */
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  margin-top: 4px;
+  margin-right: 5px;
+  font-size: 0.85em;
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 4px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.badge.conference {
+  color: #f0f0f0;
+  background-color: #6c7a89;
+}
+
+.light .badge.conference {
+  color: #2c3e50;
+  background-color: #d5d8dc;
+}
+
+.badge:hover {
+  opacity: 0.9;
+  user-select: none;
+}

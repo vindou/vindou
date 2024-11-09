@@ -1,0 +1,35 @@
+---
+layout: post
+title:  "one hour thoughts"
+keywords: burnout, mindset
+date:   2024-03-17 13:32:03 -0700
+categories: jekyll update
+
+---
+A short and informal life update: I have made the executive decision to start a blog! I mainly want to run this as a combination of a research journal, readings, and thoughts as they come up. The past few months have really changed how I view the world and myself, and I want to capture the metamorphosis of my thoughts as they happen.
+\
+\
+I've been intending to start writing for quite a while now; I actually attempted to kick this off earlier this academic year (which lasted for a total of 1 post). One large blocker, which I never overcame previously, was a pressure to put out "polished" content. My mindset this time is that I'm writing this for my own benefit; if others find it interesting, that's a bonus. Specifically, for these _"one hour thoughts"_ posts, I'll write for one hour, perform minor edits, and then publish them as they are. I feel like this cycle better matches how I generally think, and should be more conducive to putting these out and iterating on my writing style.
+\
+\
+The other large blocker was a lack of time to focus on what I found important, and more so trying to figure out what is actually important. I recently wrapped up the second quarter of my MSCS at Stanford, and my time here thus far can be characterized by pretty serious burnout, and not adjusting well to the change in environment. I've often found myself comparing the opportunities I've received at Stanford and the hypothetical opportunities I would have received as a 5th Year MS student at Berkeley, mainly in terms of work; I haven't found nearly as much fulfillment or interest in the research or courses that I've been doing here. It does feel at times that I feel that I'm starting from the bottom of the metaphorical ladder, which is all the more frustrating considering the progress I had made while an undergrad. More importantly, there were threads that needed to be wrapped up at Berkeley, which took much longer because of commitments that I had made at Stanford that didn't align well with what I wanted to do. This is the source of my burnout; I think about work in terms of "effort in, fulfillment out", and for the past few months, this ratio has been very low.
+\
+\
+Of course, the comparison isn't 1:1; Berkeley is a different environment compared to Stanford, being a grad student is different from being an undergrad, and East Bay and South Bay are very different areas. More importantly, I've learned to recognize and continually remind myself about how privileged I am to have these opportunities. Rather than focusing on what I've lost, I've been making a conscious effort to focus on what I currently have ([literally me](https://www.reddit.com/r/OnePiece/comments/9czqm4/i_still_have_my_friends_colored_panel/)). I've made many amazing friends here, and I feel like my perspectives have shifted a lot thanks to connecting with a lot of new people here, and reconnecting with old friends. Being at Stanford has also necessarily meant being away from Berkeley; I generally subscribe to the notion of "places and spaces" ([here's a quick blog post I found](https://theculturalcourier.home.blog/2019/02/22/everyday-anthropology-space-vs-place/)), and I recognize that, as a _place_, I associate Berkeley with a lot of my unhealthy work habits. Something that I'm very happy with over the past few months is that I've improved my work-life balance, exercise habits, and relationships with my Berkeley work and organizations. 
+\
+\
+Maybe most importantly, taking a Master's program at Stanford has given me the time and flexibility to take a step back, think about what I want to do, and optimize for it. I was reading some applications I wrote to different organizations during my sophomore year of undergrad, and I had described my career goals as "deploying robots in the real world". Now, I've found an incredible opportunity to do this as an intern on the AI team at [1X](https://www.1x.tech/), a fast-paced robotics startup which develops data-driven humanoid robots. Looking back, during my time as a Berkeley undergrad, I became caught up in the weeds and minutia of grinding out research to the point where I lost sight of my big-picture career goals; I couldn't consider doing anything other than academic research. Coming to Stanford (more so taking a step away from the _place_ I had created at Berkeley) has given me a chance to re-evaluate my goals and consider different options. I've come to a conclusion similar to "all roads lead to Rome": academic research is just one way, and definitely not the only way, to make a meaningful impact in robotics. I'm a strong believer in the perspective and growth gained from a breadth of different experiences; I'm sure that my experiences in academia will transfer well into my time at 1X, just as the experience that I will gain at 1X will transfer into future academic research work.
+\
+\
+When thinking about decisions and regret, the motto I keep is that "the correct choice was the one you made." As a lemma, I generally believe that the most effective and fulfilling way to work is to give one thing your 100% effort. I personally characterize my burnout as mental friction -- the feeling that something needs to be done, but you don't have the physical, mental, or emotional capacity to do it well. In this case of the past few months, a lot of mental energy was split by switching context between my projects at Berkeley (check it out here: [ATM](https://xingyu-lin.github.io/atm/)) and those started here at Stanford. The past few weeks have served as a nice soft mental reset, and I feel like I've correctly re-centered my motivations and commitments. To circle back to the motto mentioned above, I'm ultimately very happy that I came to Stanford; despite how I've felt over the past few months, I've always felt that coming here was a good choice. If anything, my small regret is that I wasn't fully present mentally to make the most of my time here thus far. I certainly would have been a lot happier with my Berkeley goals if I had stayed at Berkeley, but I recognize that my goals, priorities, and mindset over the past few months have fundamentally changed. I'm very much looking forward to making the most out of 1X over the couple months, and giving my endeavors in the coming year my 100% effort.
+\
+\
+Hopefully this time goes differently; looking forward to seeing this blog bloom.
+
+___
+
+_on the idea stack:_ \
+the relationship between time <> effort <> motivation; \
+ichiro kishimi's [_the courage to be disliked_](https://www.goodreads.com/en/book/show/43306206); \
+the interplay between robotics <> learning; \
+kalman filtering.

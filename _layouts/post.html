@@ -1,0 +1,14 @@
+---
+layout: blog
+---
+<div class="text-container">
+
+  <h1>joso journal: {{ page.title }}</h1>
+  <p>{{ page.date | date_to_string }}</p>
+  <p>keywords: {{ page.keywords }}</p>
+  <p>back to <a href="/blog.html">blog</a></p>
+  <hr>
+  {{ content }}
+  <br>
+  <p><a href="#">top</a>; back to <a href="/blog.html">blog</a></p>
+</div>

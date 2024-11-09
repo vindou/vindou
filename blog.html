@@ -1,0 +1,26 @@
+---
+layout: blog
+title: joso journal
+---
+
+<div class="title-container">
+  <div class="text-container">
+    <h1>joso journal</h1>
+    <p>
+      <a href="/index.html">home</a>
+    </p>
+  </div>
+</div>
+<div class="text-container">
+  <p>A very informal collection of things I've made and thoughts I've thought.</p>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a> ({{ post.keywords }})</li>
+    {% endfor %}
+  </ul>
+</div>
+<hr>
+<br>
+<div class="section footer">
+  <p>last updated: {{ site.time | date_to_string }} | <a href="#">&#128640;</a></p>
+</div>
