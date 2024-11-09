@@ -175,11 +175,11 @@ a:hover { text-decoration: underline;}
 .title-img * {
   width: 100%;
   border-radius: 3px;
-  border: 1px solid rgb(50, 50, 50);
+  border: 1px solid #ddd;
 }
 
 .light .title-img * {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(50, 50, 50);
 }
 
 .project-media {
