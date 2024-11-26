@@ -15,7 +15,7 @@ body {
   padding: 0;
   font-family: 'San Francisco', serif;
   font-weight: 300;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(255, 255, 255);
   color: rgb(20, 20, 20);
 }
 
@@ -84,7 +84,6 @@ li {
 
 a {
   color: rgb(30, 50, 143);
-  
   text-decoration: none;
 }
 
