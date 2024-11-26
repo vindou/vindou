@@ -83,7 +83,7 @@ li {
 }
 
 a {
-  color: #1966ff;
+  color: #2d73ff;
   text-decoration: none;
 }
 
@@ -101,7 +101,7 @@ a {
 
 .light a {
   /* lighter blue */
-  color: #1966ff;
+  color: #6699ff;
 }
 
 .light h2 hr {
