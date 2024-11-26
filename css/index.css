@@ -28,7 +28,7 @@ button {
 
 .light {
   background-color: rgb(20, 20, 20);
-  color: rgb(200, 200, 200);
+  color: rgb(255, 255, 255);
 }
 
 h1 {
@@ -50,7 +50,7 @@ h2 hr {
   flex-grow: 1;
   margin-left: 20px;
   height: 1px;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(255, 255, 255);
   border: none;
 }
 
