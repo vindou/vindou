@@ -15,7 +15,7 @@ body {
   padding: 0;
   font-family: 'San Francisco', serif;
   font-weight: 300;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(209, 205, 194);
   color: rgb(20, 20, 20);
 }
 
@@ -50,7 +50,7 @@ h2 hr {
   flex-grow: 1;
   margin-left: 20px;
   height: 1px;
-  background-color: rgb(229, 229, 229);
+  background-color: rgb(209, 205, 194);
   border: none;
 }
 
