@@ -111,6 +111,12 @@ a:hover { text-decoration: underline;}
   margin:10px;
 }
 
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 .section {
   display: flex;
   flex-wrap: wrap;
@@ -138,7 +144,7 @@ a:hover { text-decoration: underline;}
 }
 
 .title-text {
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 /* media */
