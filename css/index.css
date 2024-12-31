@@ -87,27 +87,6 @@ a {
   text-decoration: none;
 }
 
-.light p {
-  color: rgb(190, 190, 190);
-}
-
-.light ol, .light ul {
-  color: rgb(190, 190, 190);
-}
-
-.light li {
-  color: rgb(190, 190, 190);
-}
-
-.light a {
-  /* lighter blue */
-  color: #6699ff;
-}
-
-.light h2 hr {
-  background-color: rgb(70, 70, 70);
-}
-
 a:hover { text-decoration: underline;}
 
 /* layout */
@@ -179,10 +158,6 @@ a:hover { text-decoration: underline;}
   border: 1px solid #ddd;
 }
 
-.light .title-img * {
-  border: 1px solid rgb(50, 50, 50);
-}
-
 .project-media {
   margin: 10px;
   width: 100%;
@@ -205,36 +180,4 @@ img {
   width: 100%;
   margin:auto;
   margin-top: 3px;
-}
-
-/* papers */
-
-.badge {
-  display: inline-block;
-  padding: 4px 8px;
-  margin-top: 4px;
-  margin-right: 5px;
-  font-size: 0.85em;
-  font-weight: 300;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 4px;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
-}
-
-.badge.conference {
-  color: #f0f0f0;
-  background-color: #6c7a89;
-}
-
-.light .badge.conference {
-  color: #2c3e50;
-  background-color: #d5d8dc;
-}
-
-.badge:hover {
-  opacity: 0.9;
-  user-select: none;
 }
