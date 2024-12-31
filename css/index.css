@@ -118,7 +118,7 @@ a:hover { text-decoration: underline;}
 .section {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .subsection {
