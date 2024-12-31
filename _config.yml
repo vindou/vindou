@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: John So
-email: johnianrso@berkeley.edu
+title: Gilbert Chang
+email: chang940@purdue.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  John So's Portfolio and Blog!
+  Gilbert Chang's personal website
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.johnrso.xyz" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: johnrso_
-github_username:  johnrso
+url: "https://gilcha.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: changd0u
+github_username:  vindou
 
 # Build settings
 theme: minima
