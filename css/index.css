@@ -33,13 +33,13 @@ button {
 
 h1 {
   line-height: 1.5;
-  font-size: 24px;
+  font-size: 36px;
   margin: 0;
   font-weight: 400;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 24px;
   margin: 0;
   font-weight: 400;
   display: flex;
@@ -56,7 +56,7 @@ h2 hr {
 
 h3 {
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
   margin-bottom: 2px;
   font-weight: 500;
