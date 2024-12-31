@@ -1,3 +1,6 @@
-doing my undergrad at purdue, working at the [comma lab](https://commalab.org/) at purdue, advised by dr. zachary kingston.
+### 👋 Hi! I'm Chang.
 
-consider visting my [website](https://gilcha.com/).
+I'm an undergraduate at Purdue University, working at the [Computational Motion, Manipulation, and Autonomy lab](https://commalab.org/), advised by Dr. Zachary Kingston.
+I study mechanical engineering and computer science (concentration in computational science and engineering), with minors in mathematics and electrical and computer engineering.
+
+Consider visting [my website](https://gilcha.com/).
