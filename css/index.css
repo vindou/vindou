@@ -27,7 +27,7 @@ html, body {
   transition: box-shadow 0.2s ease;
 }
 
-/* Change cursor on active drag */
+/* When pressed, show grabbing cursor and a more intense glow */
 .draggable-rect:active {
   cursor: grabbing;
   box-shadow: 0 0 15px rgba(255, 84, 0, 0.6);
@@ -58,4 +58,10 @@ html, body {
 }
 .rect-content a:hover {
   color: #FFA366;
+}
+
+/* 1) Create a .dragging class that disables text selection for everything */
+.dragging,
+.dragging * {
+  user-select: none;
 }

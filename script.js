@@ -1,6 +1,5 @@
 // Basic drag logic for multiple .draggable-rect elements
 
-// Track which element is being dragged and offset within that element
 let activeRect = null;
 let offsetX = 0;
 let offsetY = 0;
@@ -13,12 +12,14 @@ document.addEventListener("mousedown", (event) => {
     const rectBounds = activeRect.getBoundingClientRect();
     offsetX = event.clientX - rectBounds.left;
     offsetY = event.clientY - rectBounds.top;
+
+    // 2) Add the .dragging class to body when we start dragging
+    document.body.classList.add("dragging");
   }
 });
 
 document.addEventListener("mousemove", (event) => {
   if (activeRect) {
-    // Move the rectangle with the mouse
     const newLeft = event.clientX - offsetX;
     const newTop = event.clientY - offsetY;
     activeRect.style.left = `${newLeft}px`;
@@ -27,6 +28,10 @@ document.addEventListener("mousemove", (event) => {
 });
 
 document.addEventListener("mouseup", () => {
-  // Stop dragging
-  activeRect = null;
+  // End the drag
+  if (activeRect) {
+    activeRect = null;
+    // Remove the .dragging class once dragging stops
+    document.body.classList.remove("dragging");
+  }
 });
