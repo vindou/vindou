@@ -1,185 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
+/* Basic reset */
 * {
-  box-sizing: border-box;
-  font-size: 18px;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  background-color: rgb(255, 255, 255);
-  color: rgb(20, 20, 20);
+  box-sizing: border-box;
 }
 
-button {
-  border: none;
-  cursor: pointer;
-  appearance: none;
-  background-color: inherit;
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #0B0B0B; /* Dark background */
+  font-family: 'Share Tech Mono', monospace;
+  color: #F2F2F2;
+  overflow: hidden; /* Optional: hide scrollbars if the panels fit */
 }
 
-.light {
-  background-color: rgb(20, 20, 20);
-  color: rgb(255, 255, 255);
+/* Draggable rectangles */
+.draggable-rect {
+  position: absolute;  /* So we can freely move them around */
+  width: 250px;
+  min-height: 120px;
+  background-color: #1A1A1A;  /* Dark gray inside */
+  border: 1px solid #FF5400;  /* Orange border */
+  border-radius: 4px;
+  cursor: grab;               /* Show the “grab” cursor */
+  box-shadow: 0 0 10px rgba(255, 84, 0, 0.3);
+  transition: box-shadow 0.2s ease;
 }
 
-h1 {
-  line-height: 1.5;
-  font-size: 36px;
-  margin: 0;
-  font-weight: 700;
+/* Change cursor on active drag */
+.draggable-rect:active {
+  cursor: grabbing;
+  box-shadow: 0 0 15px rgba(255, 84, 0, 0.6);
 }
 
-h2 {
-  font-size: 24px;
-  margin: 0;
-  font-weight: 550;
-  display: flex;
-  align-items: center;
+/* Rectangle header style */
+.rect-header {
+  background-color: #111;  /* Even darker strip behind header */
+  color: #FF5400;          /* Orange text for header */
+  padding: 8px 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #FF5400;
 }
 
-h2 hr {
-  flex-grow: 1;
-  margin-left: 24px;
-  height: 1px;
-  background-color: rgb(229, 229, 229);
-  border: none;
+/* Rectangle content */
+.rect-content {
+  padding: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-h3 {
-  line-height: 1.5;
-  font-size: 20px;
-  margin: 0;
-  margin-bottom: 2px;
-  font-weight: 500;
-}
-
-p {
-  line-height: 1.5;
-  color: #222;
-  margin: 0px 0 2px 0;
-}
-
-/* reduce the left margin of lists */
-ol, ul {
-  line-height: 1.5;
-  padding-left: 20px; /* Adjust the value as needed */
-  color: #222;
-
-}
-
-li {
-  line-height: 1.5;
-  margin: 0;
-  color: #222;
-}
-
-a {
-  color: #2d73ff;
+/* Links inside the rectangles */
+.rect-content a {
+  color: #FF5400;
   text-decoration: none;
+  transition: color 0.2s;
 }
-
-a:hover { text-decoration: underline;}
-
-/* layout */
-
-.outer-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.flex-container {
-  width: 100%;
-  max-width: 800px;
-  padding: 20px;
-}
-
-.text-container {
-  flex: 100;
-  min-width: 250px;
-  display: flex;
-  text-align: justify;
-  text-justify: inter-word;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: left;
-  margin:2px;
-}
-
-.title {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.section {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.subsection {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-
-/* heading and footer */
-
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: left;
-  margin-bottom: 15px;
-}
-
-.title-text {
-  margin-top: 5px;
-}
-
-/* media */
-
-.title-img {
-  height: 120px;
-  width: 120px;
-}
-
-.title-img * {
-  width: 100%;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-}
-
-.project-media {
-  margin: 10px;
-  width: 100%;
-  max-width: 165px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-img {
-  border-radius: 3px;
-  width: 100%;
-  margin:auto;
-  margin-top: 3px;
-}
-
-.project-media * {
-  border-radius: 3px;
-  width: 100%;
-  margin:auto;
-  margin-top: 3px;
+.rect-content a:hover {
+  color: #FFA366;
 }
