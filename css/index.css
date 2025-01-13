@@ -1,103 +1,185 @@
-/* Basic resets */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
 }
 
-html, body {
-  background: #0B0B0B; /* Dark background */
-  color: #F2F2F2;      /* Light text */
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 16px;
-  line-height: 1.6;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  background-color: rgb(255, 255, 255);
+  color: rgb(20, 20, 20);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.light {
+  background-color: rgb(20, 20, 20);
+  color: rgb(255, 255, 255);
+}
+
+h1 {
+  line-height: 1.5;
+  font-size: 36px;
+  margin: 0;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+}
+
+h2 hr {
+  flex-grow: 1;
+  margin-left: 24px;
+  height: 1px;
+  background-color: rgb(229, 229, 229);
+  border: none;
+}
+
+h3 {
+  line-height: 1.5;
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.5;
+  color: #222;
+  margin: 0px 0 2px 0;
+}
+
+/* reduce the left margin of lists */
+ol, ul {
+  line-height: 1.5;
+  padding-left: 20px; /* Adjust the value as needed */
+  color: #222;
+
+}
+
+li {
+  line-height: 1.5;
+  margin: 0;
+  color: #222;
 }
 
 a {
-  color: #FF5400;      /* Orange accent for links */
+  color: #2d73ff;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-a:hover {
-  color: #FFA366;      /* Slightly lighter orange on hover */
+a:hover { text-decoration: underline;}
+
+/* layout */
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* Title section */
-.title {
+.flex-container {
   width: 100%;
-  padding: 40px 2rem 20px 2rem;
-  background: #0B0B0B;
-  border-bottom: 1px solid #FF5400; /* Subtle horizontal border with orange accent */
-}
-
-.title h1 {
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #FF5400;  /* Heading in orange */
-  margin-bottom: 10px;
-}
-
-.title-text p {
-  margin: 5px 0;
-  font-size: 1rem;
-}
-
-/* “Text container” sections: simple layout spacing */
-.text-container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 20px;
 }
 
-/* Sections with headings */
+.text-container {
+  flex: 100;
+  min-width: 250px;
+  display: flex;
+  text-align: justify;
+  text-justify: inter-word;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  margin:2px;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 .section {
-  padding: 2rem 0;
-  border-bottom: 1px solid #1A1A1A;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
-.section h2 {
-  color: #FF5400;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.section hr {
-  border: none;
-  height: 1px;
-  background: #FF5400;
-  width: 60px;
-  margin: 0.5rem 0;
-}
-
-/* Subsections can have additional stylings or a subtle border */
 .subsection {
-  border-left: 3px solid #FF5400;
-  padding-left: 1rem;
-  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
-/* Footer styling */
+
+/* heading and footer */
+
 .footer {
-  text-align: center;
-  padding-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  margin-bottom: 15px;
 }
 
-.footer p {
-  color: #777;
-  font-size: 0.9rem;
+.title-text {
+  margin-top: 5px;
 }
 
-/* Example of a “data readout” inspired effect for hover or highlight */
-.text-container a:hover {
-  text-shadow: 0 0 4px #FF5400;
+/* media */
+
+.title-img {
+  height: 120px;
+  width: 120px;
 }
 
-/* Optional: add a futuristic “flash” or highlight on headings */
-h1:hover, h2:hover {
-  text-shadow: 0 0 10px #FF5400;
-  cursor: default;
+.title-img * {
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+
+.project-media {
+  margin: 10px;
+  width: 100%;
+  max-width: 165px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  border-radius: 3px;
+  width: 100%;
+  margin:auto;
+  margin-top: 3px;
+}
+
+.project-media * {
+  border-radius: 3px;
+  width: 100%;
+  margin:auto;
+  margin-top: 3px;
 }
