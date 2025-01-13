@@ -16,27 +16,28 @@ html, body {
 
 /* Draggable rectangles */
 .draggable-rect {
-  position: absolute;  /* So we can freely move them around */
+  position: absolute;  /* Freed for dragging */
   width: 250px;
   min-height: 120px;
-  background-color: #1A1A1A;  /* Dark gray inside */
-  border: 1px solid #FF5400;  /* Orange border */
+  /* Slight translucency for overlap transparency */
+  background-color: rgba(26, 26, 26, 0.85);
+  border: 1px solid #FF5400;
   border-radius: 4px;
-  cursor: grab;               /* Show the “grab” cursor */
+  cursor: grab;  /* Indicate draggable */
   box-shadow: 0 0 10px rgba(255, 84, 0, 0.3);
   transition: box-shadow 0.2s ease;
 }
 
-/* When pressed, show grabbing cursor and a more intense glow */
+/* Pressed state */
 .draggable-rect:active {
   cursor: grabbing;
   box-shadow: 0 0 15px rgba(255, 84, 0, 0.6);
 }
 
-/* Rectangle header style */
+/* Rectangle header */
 .rect-header {
-  background-color: #111;  /* Even darker strip behind header */
-  color: #FF5400;          /* Orange text for header */
+  background-color: #111;
+  color: #FF5400;
   padding: 8px 10px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -50,17 +51,18 @@ html, body {
   line-height: 1.4;
 }
 
-/* Links inside the rectangles */
+/* Links */
 .rect-content a {
   color: #FF5400;
   text-decoration: none;
   transition: color 0.2s;
 }
+
 .rect-content a:hover {
   color: #FFA366;
 }
 
-/* 1) Create a .dragging class that disables text selection for everything */
+/*  Disable text selection when dragging */
 .dragging,
 .dragging * {
   user-select: none;
