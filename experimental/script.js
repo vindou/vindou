@@ -116,3 +116,5 @@ function applyInertia(element) {
   // Use requestAnimationFrame for smooth motion
   requestAnimationFrame(() => applyInertia(element));
 }
+
+

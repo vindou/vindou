@@ -1,0 +1,69 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #0B0B0B; /* Dark background */
+  font-family: 'Share Tech Mono', monospace;
+  color: #F2F2F2;
+  overflow: hidden; /* Optional: hide scrollbars if the panels fit */
+}
+
+.draggable-rect {
+  position: absolute;
+  width: 250px;
+  min-height: 120px;
+
+  /* Single container with background, border, and radius */
+  background-color: rgba(11, 11, 11, 0.8);   /* Or your dark color */
+  border: 2px solid #FF5400;    /* Orange border */
+  border-radius: 10px;          /* Rounded corners */
+  overflow: hidden;             /* Ensures corners stay rounded */
+
+  /* Any other styles you want */
+  box-shadow: 0 0 10px rgba(255, 84, 0, 0.3);
+  cursor: grab;
+}
+
+.rect-header {
+  /* If you have a separate header bar, give it matching top corners. */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  /* Possibly same or slightly darker background color */
+  background-color: #111;
+  color: #FF5400;
+  padding: 8px 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #FF5400;
+}
+
+/* Rectangle content */
+.rect-content {
+  padding: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Links */
+.rect-content a {
+  color: #FF5400;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.rect-content a:hover {
+  color: #FFA366;
+}
+
+/*  Disable text selection when dragging */
+.dragging,
+.dragging * {
+  user-select: none;
+}

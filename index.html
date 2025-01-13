@@ -3,51 +3,56 @@ layout: default
 title: gilbert chang
 ---
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Draggable Rectangles with Inertia</title>
-  <!-- Include a futuristic-looking font (optional) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
-    rel="stylesheet"
-  >
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- Rectangle #1 -->
-  <div class="draggable-rect" id="rect-experience" style="left: 100px; top: 100px;">
-    <div class="rect-header">Experience</div>
-    <div class="rect-content">
-      <p>ECE 20001: Linear Circuit Analysis I — Summer 2024 (UTA)</p>
+<div class="title">
+  <div class="subsection">
+    <div class="text-container title-text">
+      <h1>gilbert chang</h1>
+      <p><i>chang940 &lt;at&gt; purdue &lt;dot&gt; edu</i></p>
+      <p> &#123;
+        <a target="_blank" href="https://github.com/vindou">github</a> |
+        <a target="_blank" href="https://www.linkedin.com/in/gilchang">linkedin</a> |
+        <a target="_blank" href="/media/pdf/1125_Resume.pdf">resume</a>
+      &#125; </p>
     </div>
   </div>
-
-  <!-- Rectangle #2 -->
-  <div class="draggable-rect" id="rect-research" style="left: 350px; top: 200px;">
-    <div class="rect-header">Research</div>
-    <div class="rect-content">
+</div>
+<div class="text-container">
+  <p>
+    studying <a href="https://gilcha.com/education/">a lot of stuff</a> at <a href="https://www.purdue.edu/">purdue</a>.
+  </p>
+  <p>
+    always working on something new.
+  </p>
+</div>
+<div class="section">
+  <div class="text-container">
+    <h2>experience<hr></h2>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
+      <p></p>
+      <p><a href="https://engineering.purdue.edu/ECE/Academics/Undergraduates/UGO/CourseInfo/courseInfo?courseid=716&show=true&type=undergrad">
+        ece 20001: linear circuit analysis I</a> — summer 2024 (uta)</p>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="text-container">
+    <h2>research<hr></h2>
+  </div>
+  <div class="subsection">
+    <div class="text-container">
       <p>
-        Working under <a href="https://zkingston.com/">Dr. Kingston</a>
-        at the <a href="https://commalab.org/">Comma Lab</a>.<br>
-        Interests: Controls &amp; Robotics.
+        working under the guidance of <a href="https://zkingston.com/">dr. kingston</a>
+        at the <a href="https://commalab.org/">comma lab</a>.
+        research interests include controls and robotics.
       </p>
     </div>
   </div>
+</div>
 
-  <!-- Rectangle #3 -->
-  <div class="draggable-rect" id="rect-studies" style="left: 600px; top: 120px;">
-    <div class="rect-header">Studies</div>
-    <div class="rect-content">
-      <p>
-        Studying a lot at <a href="https://www.purdue.edu/">Purdue</a>.<br>
-        Always working on something new.
-      </p>
-    </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
 
+<div class="section footer">
+  <p>last updated: {{ site.time | date_to_string }} | <a href="#">&#128640;</a></p>
+</div>
