@@ -1,120 +1,130 @@
-// We'll track the following for each rectangle:
-//  - lastX / lastY: to compute how much the rectangle has moved per mouse event
-//  - velocityX / velocityY: for inertia
-//  - isDragging: a flag to see if the user is currently dragging
+//////////////////////////////////////////////////////
+// DRAGGABLE LOGIC FOR ALL .draggable-rect ELEMENTS //
+//////////////////////////////////////////////////////
 
-// A map from element -> state object
-const rectState = new Map();
-
-// Current rectangle being dragged
 let activeRect = null;
-
-// Global positions for offset
 let offsetX = 0;
 let offsetY = 0;
 
-// On mousedown, set up dragging
+// On mouse down
 document.addEventListener("mousedown", (event) => {
-  const rectElement = event.target.closest(".draggable-rect");
-  if (rectElement) {
-    activeRect = rectElement;
+  const rect = event.target.closest(".draggable-rect");
+  if (rect) {
+    activeRect = rect;
+    const bounds = rect.getBoundingClientRect();
+    offsetX = event.clientX - bounds.left;
+    offsetY = event.clientY - bounds.top;
 
-    // If we don't have a state object for this rect yet, create one
-    if (!rectState.has(rectElement)) {
-      rectState.set(rectElement, {
-        velocityX: 0,
-        velocityY: 0,
-        lastX: event.clientX,
-        lastY: event.clientY,
-        isDragging: false
-      });
-    }
-
-    const state = rectState.get(rectElement);
-
-    // Compute offset between mouse and top-left of rectangle
-    const rectBounds = rectElement.getBoundingClientRect();
-    offsetX = event.clientX - rectBounds.left;
-    offsetY = event.clientY - rectBounds.top;
-
-    // Initialize velocity to zero on mouse-down
-    state.velocityX = 0;
-    state.velocityY = 0;
-    state.lastX = event.clientX;
-    state.lastY = event.clientY;
-    state.isDragging = true;
-
-    // Add .dragging class to disable text selection
+    // Disable text selection (via .dragging class)
     document.body.classList.add("dragging");
   }
 });
 
-// On mousemove, if we are dragging, move the rectangle
+// On mouse move
 document.addEventListener("mousemove", (event) => {
   if (activeRect) {
-    const state = rectState.get(activeRect);
-    if (!state || !state.isDragging) return;
-
-    // Current position
-    const newLeft = event.clientX - offsetX;
-    const newTop  = event.clientY - offsetY;
-    activeRect.style.left = `${newLeft}px`;
-    activeRect.style.top  = `${newTop}px`;
-
-    // Calculate velocity from change in mouse position
-    const dx = event.clientX - state.lastX;
-    const dy = event.clientY - state.lastY;
-    state.velocityX = dx;
-    state.velocityY = dy;
-
-    state.lastX = event.clientX;
-    state.lastY = event.clientY;
+    activeRect.style.left = (event.clientX - offsetX) + "px";
+    activeRect.style.top  = (event.clientY - offsetY) + "px";
   }
 });
 
-// On mouseup, release the rectangle and apply inertia
+// On mouse up
 document.addEventListener("mouseup", () => {
-  if (activeRect) {
-    const state = rectState.get(activeRect);
-    if (!state) return;
-
-    state.isDragging = false;
-    // Stop the drag, but now we let the rectangle “coast”
-    requestAnimationFrame(() => applyInertia(activeRect));
-
-    // Remove the .dragging class
-    document.body.classList.remove("dragging");
-
-    // Clear activeRect
-    activeRect = null;
-  }
+  activeRect = null;
+  document.body.classList.remove("dragging");
 });
 
-// Apply inertia after the user lets go
-function applyInertia(element) {
-  const state = rectState.get(element);
-  if (!state) return;
+//////////////////////////////////////////////////////
+// THREE.JS 3D VIEWER LOGIC FOR #three-canvas-container
+//////////////////////////////////////////////////////
 
-  // If the user is dragging again or velocity is negligible, stop.
-  if (state.isDragging || (Math.abs(state.velocityX) < 0.01 && Math.abs(state.velocityY) < 0.01)) {
-    // Zero out velocity so we don't accumulate
-    state.velocityX = 0;
-    state.velocityY = 0;
-    return;
-  }
+let scene, camera, renderer, controls;
 
-  // Update position based on velocity
-  const currentLeft = parseFloat(element.style.left) || 0;
-  const currentTop  = parseFloat(element.style.top)  || 0;
-  element.style.left = `${currentLeft + state.velocityX}px`;
-  element.style.top  = `${currentTop + state.velocityY}px`;
+init3D();
+animate();
 
-  // Dampen velocity to simulate friction
-  state.velocityX *= 0.9;
-  state.velocityY *= 0.9;
+// Basic Three.js init
+function init3D() {
+  // Scene
+  scene = new THREE.Scene();
 
-  // Use requestAnimationFrame for smooth motion
-  requestAnimationFrame(() => applyInertia(element));
+  // Camera
+  //   The aspect ratio is 250px (width of draggable) minus some padding?
+  //   but let's just assume ~ "width: 100%" inside that container is 250px wide,
+  //   or bigger if you override the .draggable-rect to be bigger.
+  //   Let's do a typical aspect ratio, say 4:3 or 16:9. We'll just do 1 for now
+  //   but you can refine as needed.
+  camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+  camera.position.set(0, 0, 15);
+
+  // Renderer
+  const container = document.getElementById("three-canvas-container");
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+  // Fit the container
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  // Orbit Controls
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+  // Basic lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+  dirLight.position.set(5, 5, 5);
+  scene.add(dirLight);
+
+  // Example geometry in wireframe
+  // (TorusKnot is just a placeholder for demonstration)
+  const geometry = new THREE.TorusKnotGeometry(3, 1, 100, 16);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0xff5400,
+    wireframe: true
+  });
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  /*
+  // If you have a local glTF file you'd like to load,
+  // you can do something like this, after including the glTFLoader script:
+
+  const loader = new THREE.GLTFLoader();
+  loader.load('path/to/yourExportedModel.gltf', (gltf) => {
+    // force wireframe
+    gltf.scene.traverse((child) => {
+      if (child.isMesh) {
+        child.material.wireframe = true;
+        child.material.color.setHex(0xff5400);
+      }
+    });
+    scene.add(gltf.scene);
+  });
+  */
+
+  // Keep the camera “fitting” the scene a bit better
+  fitCameraToObject(camera, mesh, 2); // optional helper
 }
 
+// Basic animate loop
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
 
+/** Helper to fit camera to an object’s bounding sphere */
+function fitCameraToObject(cam, obj, offset = 1.25) {
+  const box = new THREE.Box3().setFromObject(obj);
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+
+  const largestDim = Math.max(size.x, size.y, size.z);
+  const fov = cam.fov * (Math.PI / 180);
+  let cameraZ = Math.abs(largestDim / 2 / Math.sin(fov / 2));
+
+  cameraZ *= offset; // add a bit of offset to move the camera further out
+
+  cam.position.z = cameraZ;
+  cam.lookAt(center);
+  cam.updateProjectionMatrix();
+}
