@@ -182,3 +182,16 @@ img {
   margin:auto;
   margin-top: 3px;
 }
+
+.outer-container {
+  /* Centers the flex-container horizontally. */
+  display: flex;
+  justify-content: center;
+}
+
+.flex-container {
+  /* Constrains the max width of your content and centers it with margin auto. */
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
