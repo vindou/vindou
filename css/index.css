@@ -32,7 +32,8 @@ h1 {
 }
 
 h2 {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace,
+    'DejaVu Sans Mono', Menlo, Consolas, monospace;
   font-size: 24px;
   margin: 0;
   font-weight: 400;
