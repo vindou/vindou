@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -26,11 +26,11 @@ h1 {
   line-height: 1.5;
   font-size: 36px;
   margin: 0;
-  font-weight: 500;
+  font-weight: 450;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 22px;
   margin: 0;
   font-weight: 400;
   display: flex;
