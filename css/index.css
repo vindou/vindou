@@ -21,6 +21,11 @@ button {
   background-color: inherit;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 h1 {
   font-family: 'Source Serif 4', serif;
   line-height: 1.5;
