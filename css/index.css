@@ -107,7 +107,7 @@ a:hover { text-decoration: underline;}
   flex: 100;
   min-width: 250px;
   display: flex;
-  text-align: justify;
+  text-align: left;
   text-justify: inter-word;
   flex-direction: column;
   justify-content: space-evenly;
