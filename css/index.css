@@ -48,7 +48,7 @@ h2 {
 h2 hr {
   flex-grow: 1;
   margin-left: 16px;
-  height: 2px;
+  height: 1px;
   background-color: #222;
   border: none;
 }
