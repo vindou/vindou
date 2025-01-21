@@ -11,7 +11,7 @@ body {
   padding: 0;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  background-color: rgb(255, 255, 255);
+  background-color: #fbf6ed,;
   color: rgb(20, 20, 20);
 }
 
@@ -20,11 +20,6 @@ button {
   cursor: pointer;
   appearance: none;
   background-color: inherit;
-}
-
-.light {
-  background-color: rgb(20, 20, 20);
-  color: rgb(255, 255, 255);
 }
 
 h1 {
@@ -46,7 +41,7 @@ h2 hr {
   flex-grow: 1;
   margin-left: 24px;
   height: 1px;
-  background-color: rgb(229, 229, 229);
+  background-color: #fbf6ed,;
   border: none;
 }
 
