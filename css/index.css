@@ -134,8 +134,8 @@ a:hover { text-decoration: underline;}
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  align-items: left;
+  justify-content: right;
+  align-items: right;
   margin-bottom: 15px;
 }
 
