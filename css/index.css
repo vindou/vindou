@@ -142,10 +142,19 @@ a:hover { text-decoration: underline;}
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: right;
-  align-items: right;
+  justify-content: space-between;
+  align-items: center; /* Aligns items vertically in the center */
   margin-bottom: 15px;
 }
+
+.left-text {
+  text-align: left;
+}
+
+.right-text {
+  text-align: right;
+}
+
 
 .title-text {
   margin-top: 5px;
