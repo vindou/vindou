@@ -149,6 +149,7 @@ a:hover { text-decoration: underline;}
 
 .left-text {
   text-align: left;
+  color: #222;
 }
 
 .right-text {
