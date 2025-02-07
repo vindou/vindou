@@ -30,7 +30,7 @@ li {
 }
 
 h1 {
-  font-family: 'Source Serif 4', serif;
+  font-family: 'Helvetica', sans-serif;
   line-height: 1.5;
   font-size: 36px;
   margin: 0;
@@ -71,14 +71,14 @@ p {
 ol, ul {
   line-height: 1.5;
   padding-left: 20px; /* Adjust the value as needed */
-  color: #222;
+  color: #000000;
   
 }
 
 li {
   line-height: 1.5;
   margin: 0;
-  color: #222;
+  color: #000000;
 }
 
 a {
