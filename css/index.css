@@ -55,7 +55,6 @@ h2 hr {
 
 hr {
   flex-grow: 1;
-  margin-left: 16px;
   height: 1px;
   background-color: #000000;
   border: none;
