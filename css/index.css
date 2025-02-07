@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 400;
-  background-color: #ffffff;
+  background-color: #ADFE04;
   color: rgb(0, 0, 0);
 }
 
@@ -171,7 +171,7 @@ a:hover { text-decoration: underline;}
 .title-img * {
   width: 100%;
   border-radius: 3px;
-  border: 1px solid #ffffff;
+  border: 1px solid #ADFE04;
 }
 
 .project-media {
