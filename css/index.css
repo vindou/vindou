@@ -34,13 +34,13 @@ h1 {
   line-height: 1.5;
   font-size: 36px;
   margin: 0;
-  font-weight: 450;
+  font-weight: 900;
 }
 
 h2 {
   font-size: 22px;
   margin: 0;
-  font-weight: 400;
+  font-weight: 900;
   display: flex;
   align-items: center;
 }
