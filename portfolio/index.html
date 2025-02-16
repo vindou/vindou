@@ -2,254 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PORTFOLIO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAIN</title>
   <link rel="icon" href="../media/favicon1.png" sizes="32x32">
   <link rel="stylesheet" href="../css/portfolio.css">
-  <meta content="GC: PORTFOLIO" property="og:title" />
-  <meta content="A collection of my past work." property="og:description" />
-  <meta content="https://gilcha.com/media/embed_portfolio.png" property="og:image" />
-  <meta content="GC: PORTFOLIO" property="twitter:title" />
-  <meta content="A collection of my past work." property="twitter:description" />
-  <meta content="https://gilcha.com/media/embed_portfolio.png" property="twitter:image" />
+  <meta content="GC: MAIN" property="og:title" />
+  <meta content="Gilbert's Website." property="og:description" />
+  <meta content="https://gilcha.com/media/embed_home.png" property="og:image" />
+  <meta content="GC: MAIN" property="twitter:title" />
+  <meta content="Gilbert's Website." property="twitter:description" />
+  <meta content="https://gilcha.com/media/embed_home.png" property="twitter:image" />
   <meta name="theme-color" content="#0047abff" />
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    html, body {
+      height: 100%;
+      font-family: monospace;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Sidebar: fixed on the left, full height */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100vh;
+      background: #fff;
+      border-right: 2px solid black;
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Pop-out on hover */
+    }
+    .sidebar:hover {
+      transform: translateX(10px);
+    }
+
+    /* Blue dot in the sidebar corner */
+    .blue-dot {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 15px;
+      background-color: #0047AB;
+      border-radius: 50%;
+    }
+
+    /* Vertical text in the sidebar */
+    .sidebar-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* Footer-like text at the bottom of the sidebar */
+    .sidebar-footer {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%, 0) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Main content area to the right of the sidebar */
+    .main {
+      margin-left: 40px; /* Leaves space for fixed sidebar */
+      min-height: 100vh;
+      display: flex;            /* Center content both horizontally and vertically */
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Content box with thick border and shadow */
+    .content-tile {
+      position: relative;  /* So we can absolutely position the dot inside */
+      background: #fff;
+      border: 2px solid black;
+      box-shadow: 4px 4px 0 0 #333;
+      padding: 20px;
+      max-width: 800px; /* Adjust as desired */
+      width: 100%;       /* Let it shrink or grow as needed */
+      transition: transform 0.2s ease; /* For pop-out hover effect */
+    }
+    /* Hover scale effect */
+    .content-tile:hover {
+      transform: scale(1.02);
+    }
+
+    /* Blue dot in the top-right corner of the main box */
+    .content-dot {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 15px;
+      height: 15px;
+      background-color: #0047AB;
+      border-radius: 50%;
+    }
+
+    /* Basic headings and text spacing */
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    /* Optional styling for small info lines */
+    .small-text {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .footer {
+      margin-top: 0px;
+      padding: 10px;
+      text-align: center;
+      font-size: 1.0rem;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-  <!-- SIDEBAR (fixed) -->
-  <a class="sidebar" href="https://gilcha.com">
+  <!-- Sidebar -->
+  <a class="sidebar" href="https://gilcha.com/">
     <div class="blue-dot"></div>
     <div class="sidebar-content">main</div>
-    <div class="sidebar-footer">2025-02-15</div>
+    <div class="sidebar-footer">2025-02-16</div>
   </a>
 
-  <!-- MAIN CONTAINER (grid + detail) -->
-  <div class="main" id="mainContainer">
-    <!-- GRID VIEW -->
-    <div id="gridView">
-      <div class="row">
-        <!-- Row 1 -->
-        <div class="project" data-index="0" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>Prometheus</h2>
-          <div class="year">Spring 2025</div>
-          <div class="artist">Gilbert Chang, Kurt Hidalgo, et al.</div>
-          <div class="dash">-</div>
-          <img src="../media/img/prometheus-2-1.png" alt="Prometheus-2 Cross Section">
-          <p class="description">
-            Prometheus-1 and Prometheus-2 were P and N-class solid rocket motors respectively, designed to be cast at Zucrow Laboratories of Purdue University. Propellant grain geometries were developed inside of OpenMotor, custom components and assembly were modeled in Onshape, stress analysis was performed in ANSYS Mechanical, and nozzle analysis was done in ANSYS Fluent.
-          </p>
-          <div class="version">v2.0</div>
-        </div>
-        <div class="project" data-index="1" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>Polaris</h2>
-          <div class="year">Spring 2025</div>
-          <div class="artist">Gilbert Chang, Jaden Hernandez, Darin Tsai, et al.</div>
-          <div class="dash">-</div>
-          <img src="../media/img/polaris-1-1.png" alt="Polaris-1">
-          <img src="../media/img/polaris-1-2.png" alt="Polaris-1">
-          <p class="description">
-            Polaris, a series of rockets utilizing COTS SRMs from Loki Research, is currently being designed utilizing Onshape, OpenRocket, and RocketPy. FEA and CFD were conducted utilizing the Ansys suite. Intending to be manufactured at Bechtel Innovation and Design Center at Purdue University. Launch expected soon.
-          </p>
-          <div class="version">v1.0</div>
-        </div>
-        <div class="project" data-index="2" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>FR3 Fin-Ray End Effectors</h2>
-          <div class="year">Spring 2025</div>
-          <div class="artist">Gilbert Chang, Zachary Kingston</div>
-          <div class="dash">-</div>
-          <img src="../media/img/finray-2.png" alt="FR3 Fin-ray End Effectors" style="width: 0.3; height: auto; justify-content: center;">
-          <p class="description">
-            Utilizing Onshape, designed a pair of Franka Research 3 end effectors that utilize the fin-ray principle for compliance and reliability for grasping and manipulation. Used a Bambu Lab A1 mini 3D printer to fabricate the pair of end effectors.
-          </p>
-          <div class="version">v2.0</div>
-        </div>
-        <!-- Row 2 -->
-        <div class="project" data-index="3" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>Baja SAE Aerodynamics & Composites</h2>
-          <div class="year">Fall 2023 - Fall 2024</div>
-          <div class="artist">Sophia Knap, Shreejith Ravisankar, Kim Asbery, Gilbert Chang</div>
-          <div class="dash">-</div>
-          <img src="../media/img/nosecone-1.png" alt="Nosecone" style="width:300px; height: auto;">
-          <p class="description">
-            Co-authored a literature review on aerodynamic devices in automotive racing contexts, converting knowledge into a model of undertray-diffuser using Solidworks. Later modeled a nosecone for Purdue Baja SAE's 2025 car (for VARTM), as well as dogbones and three-part forged carbon molds for materials testing using Solidworks.
-          </p>
-        </div>
-        <div class="project" data-index="7" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>ME 499: Forged CF Freehubs and Topology Optimization</h2>
-          <div class="year">Spring 2024</div>
-          <div class="artist">Gilbert Chang, Jitesh Panchal, et al.</div>
-          <div class="dash">-</div>
-          <img src="../media/img/bike_cfd.png" alt="Bike CFD">
-          <p class="description">
-            Using Autodesk Fusion 360's modeling features, designed a three part mold for forging a carbon fiber racing bicycle freehub. Later utilized the software's topology optimization features to optimize the frame of a racing bicycle, smoothing features and passing the resulting models into Ansys Fluent for CFD analysis. 3D printed virtual foil geometries for wind tunnel testing.
-          </p>
-          <div class="version">v1.0</div>
-        </div>
-        <div class="project" data-index="4" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>ME 274: Final Project</h2>
-          <div class="year">Summer 2024</div>
-          <div class="artist">Gilbert Chang</div>
-          <div class="dash">-</div>
-          <img src="../media/img/hand-1.png" alt="Hand">
-          <p class="description">
-            Using Solidworks, designed a rudimentary 3D printable robotic hand with completely passive joints. Utilizing kinematics equations and other concepts learned in ME 274, which was a classic dynamics class, wrote and presented an analysis using LaTeX on the torque, current, and power requirements for a pinching motion of the robotic hand.
-          </p>
-          <div class="version">v1.0</div>
-        </div>
-        <div class="project" data-index="5" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>ME 263: Final Project</h2>
-          <div class="year">Fall 2024</div>
-          <div class="artist">Gilbert Chang, Jordan Brookenthal, Nick Coffelt, Dante Bush</div>
-          <div class="dash">-</div>
-          <img src="../media/img/bowl.png" alt="Bowl" style="width: 0.3;">
-          <p class="description">
-            Designed a rice washing device in SolidWorks/Onshape, with hand-calculated tolerance stack-ups and static analysis. Prototyped using Bambu Lab A1 Mini. Features perforated inner bowl, detachable fins, and ergonomic clamping handle.
-          </p>
-          <div class="version">v1.0</div>
-        </div>
-        <!-- Row 3 -->
-        <div class="project" data-index="6" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>ECE 20007: Final Project - Audio Equalizer</h2>
-          <div class="year">Spring 2024</div>
-          <div class="artist">Gilbert Chang, Arjo Goswami</div>
-          <div class="dash">-</div>
-          <img src="../media/img/equalizer.jpg" alt="Equalizer" style="width: 0.2;">
-          <p class="description">
-            Breadboarded an audio equalizer accepting input from a basic headphone jack wire. Used low-pass, high-pass, and band-pass filters to split the signal into three components, and potentiometers to control the strength of each element in the final signal. Operational amplifiers were used in each stage to refine the strength of the signal further. Simulated circuit performance in LTSpice.
-          </p>
-          <div class="version">v1.0</div>
-        </div>
-        <div class="project" data-index="6" onclick="transitionToDetail(0)">
-          <div class="tile-dot"></div>
-          <h2>VIP 27920: PCB Chiplets</h2>
-          <div class="year">Summer 2024</div>
-          <div class="artist">Gilbert Chang, Brady Philhower, Duc Tri Than</div>
-          <div class="dash">-</div>
-          <img src="../media/img/chiplets.png" alt="Chiplets" style="width:0.2;">
-          <p class="description">
-            Explored chiplet architecture for improved modularity, yield, and performance. Designed a tileable square chiplet with mirrored pin layouts for efficient routing. Implemented a UART-based system for streamlined data handling and developed optimized PCB layouts for signal integrity.
-          </p>
-          <div class="version">v1.0</div>
-        </div>
-      </div>
-      <!-- Footer Section -->
-      <footer class="footer">
-        © 2025 Gilbert Chang
-      </footer>
-    </div>
+  <!-- Main content, centered -->
+  <div class="main">
+    <!-- Content tile (box) with thick border, shadow, and hover pop-out -->
+    <div class="content-tile">
+      <!-- Blue dot in top-right corner of the main box -->
+      <div class="content-dot"></div>
 
-    <!-- DETAIL VIEW (slides in from the right) -->
-    <div id="detailView">
-      <div class="detail-container">
-        <!-- Left column: mini-tiles -->
-        <div class="detail-list"></div>
-        <!-- Right column: large detail tile with X overlapping -->
-        <div class="detail-content">
-          <button class="close-button" onclick="transitionToGrid()">X</button>
-        </div>
-      </div>
+      <h1>Under Construction</h1>
+      <p>Come back later!</p>
     </div>
   </div>
-
-  <script>
-    // Project data array now has 8 items
-    var projects = [
-      {
-        title: "Hi!",
-        year: "Spring 2025",
-        artist: "Gilbert Chang",
-        description: "This place is under construction, if you have further questions about any of my past work, shoot me an email.",
-        version: "v2.0",
-        image: "",
-        extra: ""
-      }
-    ];
-
-    // Fade out the grid, then show detail
-    function transitionToDetail(index) {
-      const gridView = document.getElementById("gridView");
-      gridView.style.opacity = "0";
-      setTimeout(function() {
-        gridView.style.display = "none";
-        showDetail(index);
-      }, 300);
-    }
-
-    // Slide in detail view
-    function showDetail(index) {
-      const detailView = document.getElementById("detailView");
-      detailView.style.display = "block";
-      // Force reflow before adding active
-      detailView.offsetHeight;
-      detailView.classList.add("active");
-      populateDetailList(index);
-      updateDetail(index);
-    }
-
-    // Slide out detail, fade grid back in
-    function transitionToGrid() {
-      const detailView = document.getElementById("detailView");
-      detailView.classList.remove("active");
-      setTimeout(function(){
-        detailView.style.display = "none";
-        const gridView = document.getElementById("gridView");
-        gridView.style.display = "block";
-        gridView.offsetHeight;
-        gridView.style.opacity = "1";
-      }, 500);
-    }
-
-    // Populate mini-tiles on the left
-    function populateDetailList(activeIndex) {
-      const listDiv = document.querySelector(".detail-list");
-      listDiv.innerHTML = "";
-      projects.forEach(function(proj, idx) {
-        const item = document.createElement("div");
-        item.className = "mini-project" + (idx === activeIndex ? " active" : "");
-        item.innerHTML = `
-          <div class="tile-dot"></div>
-          <strong>${proj.title}</strong>
-          <div>${proj.year}</div>
-        `;
-        item.onclick = function() {
-          updateDetail(idx);
-          document.querySelectorAll(".mini-project").forEach(function(el, i) {
-            el.classList.toggle("active", i === idx);
-          });
-        };
-        listDiv.appendChild(item);
-      });
-    }
-
-    // Update large detail tile on the right
-    function updateDetail(index) {
-      const contentDiv = document.querySelector(".detail-content");
-      // Keep the close-button in place, so only replace everything else
-      contentDiv.innerHTML = `
-        <button class="close-button" onclick="transitionToGrid()">X</button>
-      `;
-
-      const proj = projects[index];
-      const detailHTML = `
-        <div class="tile-dot"></div>
-        <h2>${proj.title}</h2>
-        <div class="year">${proj.year}</div>
-        <div class="artist">${proj.artist}</div>
-        <div class="dash">-</div>
-        <img src="${proj.image}" alt="${proj.title}" />
-        <p class="description">${proj.description}</p>
-        <div class="extra">${proj.extra}</div>
-        <div class="version">${proj.version}</div>
-      `;
-      contentDiv.insertAdjacentHTML('beforeend', detailHTML);
-    }
-  </script>
 </body>
 </html>
