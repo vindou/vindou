@@ -4,289 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PORTFOLIO</title>
-  <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
-      background: #f5f5f5;
-      font-family: monospace;
-      color: #333;
-    }
-
-    /* SIDEBAR: fixed on the left, full height */
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 40px;
-        height: 100vh;
-        background: #fff;
-        border-right: 2px solid black;
-        text-decoration: none;
-        color: #333;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-        z-index: 9999;
-    }
-
-    .sidebar:hover {
-        transform: translateX(10px);
-    }
-
-    .blue-dot {
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 15px;
-      height: 15px;
-      background-color: #0047AB;
-      border-radius: 50%;
-    }
-    .sidebar-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(180deg);
-      writing-mode: vertical-rl;
-      font-weight: bold;
-      font-size: 14px;
-    }
-    .sidebar-footer {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translate(-50%, 0) rotate(180deg);
-      writing-mode: vertical-rl;
-      font-size: 14px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    /* MAIN CONTAINER to the right of the sidebar */
-    .main {
-      position: relative;
-      margin-left: 40px;
-      height: 100vh;
-      overflow-y: visible;
-      overflow-x: hidden;
-      transition: opacity 0.3s ease;
-      padding: 20px;
-      padding-bottom: 20px; /* Extra bottom padding for footer */
-    }
-
-    /* GRID VIEW */
-    #gridView {
-      width: 100%;
-      /* Let grid view's height expand with its content */
-      transition: opacity 0.3s ease;
-    }
-    /* Force exactly 3 columns per row */
-    .row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    /* Each project tile in the grid */
-    .project {
-      position: relative;
-      background: #fff;
-      border: 2px solid black;
-      padding: 15px;
-      min-height: 500px; /* Using max-height so tiles shrink if needed */
-      box-shadow: 4px 4px 0 0 #333;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .project:hover {
-      transform: scale(1.02);
-    }
-    .project h2 {
-      font-size: 1.4rem;
-      margin-bottom: 5px;
-    }
-    .year, .artist {
-      font-size: 1rem;
-      margin-bottom: 2px;
-    }
-    .dash {
-      margin: 10px 0;
-      font-size: 1.1rem;
-    }
-    .project img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .description {
-      flex: 1;
-      font-size: 1rem;
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-    .version {
-      font-size: 0.8rem;
-      color: #777;
-      text-align: right;
-    }
-    /* Blue dot in corner of each tile */
-    .tile-dot {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 15px;
-      height: 15px;
-      background-color: #0047AB;
-      border-radius: 50%;
-    }
-
-    /* Footer */
-    .footer {
-      margin-top: 20px;
-      padding: 10px;
-      text-align: center;
-      font-size: 1.0rem;
-      color: #777;
-    }
-
-    /* DETAIL VIEW: covers the main container, slides in from the right */
-    #detailView {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #f5f5f5;
-      transform: translateX(100%);
-      opacity: 0;
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      z-index: 10;
-      box-sizing: border-box;
-      padding: 20px;
-    }
-    #detailView.active {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    /* detail-container: left mini-tiles + right large tile with equal vertical margins */
-    .detail-container {
-      display: flex;
-      width: 100%;
-      margin: 40px 0;
-      height: calc(100% - 80px);
-      gap: 20px;
-    }
-
-    /* Left column: mini-tiles, widen to 350px */
-    .detail-list {
-      width: 350px;
-      background: #fff;
-      border: 2px solid black;
-      box-shadow: 4px 4px 0 0 #333;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 10px;
-    }
-    .mini-project {
-      position: relative;
-      width: 300px;
-      background: #fff;
-      border: 2px solid black;
-      box-shadow: 4px 4px 0 0 #333;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      min-height: 80px;
-      margin-bottom: 10px;
-      transition: transform 0.2s ease;
-    }
-    .mini-project:not(.active):hover {
-      transform: scale(1.02);
-    }
-    .mini-project.active {
-      transform: translateX(10px) scale(1.02);
-    }
-
-    /* Right column: large detail tile, fill remaining space */
-    .detail-content {
-      position: relative;
-      flex: 1;
-      background: #fff;
-      border: 2px solid black;
-      box-shadow: 4px 4px 0 0 #333;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      padding: 15px;
-    }
-    .detail-content h2 {
-      font-size: 1.6rem;
-      margin-bottom: 5px;
-    }
-    .detail-content .year, .detail-content .artist {
-      font-size: 1.1rem;
-      margin-bottom: 2px;
-    }
-    .detail-content .dash {
-      margin: 10px 0;
-      font-size: 1.2rem;
-    }
-    .detail-content img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .detail-content .description {
-      font-size: 1.1rem;
-      line-height: 1.4;
-      margin-bottom: 10px;
-    }
-    .detail-content .extra {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .detail-content .version {
-      font-size: 0.9rem;
-      color: #777;
-      text-align: right;
-    }
-
-    /* Overlapping X button inside the large tile */
-    .close-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #fff;
-      border: 2px solid black;
-      box-shadow: 4px 4px 0 0 #333;
-      border-radius: 0;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease;
-      z-index: 999;
-    }
-    .close-button:hover {
-      transform: scale(1.05);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/portfolio.css">
 </head>
 <body>
   <!-- SIDEBAR (fixed) -->
@@ -304,37 +22,38 @@
         <!-- Row 1 -->
         <div class="project" data-index="0" onclick="transitionToDetail(0)">
           <div class="tile-dot"></div>
-          <h2>Under Construction.</h2>
-          <div class="year">1998</div>
-          <div class="artist">Michael Rakowitz</div>
+          <h2>Prometheus</h2>
+          <div class="year">Spring 2025</div>
+          <div class="artist">Gilbert Chang, Kurt Hidalgo, et al.</div>
           <div class="dash">-</div>
-          <img src="project1.jpg" alt="paraSITE">
+          <img src="../media/img/prometheus-2-1.png" alt="Prometheus-2 Cross Section">
           <p class="description">
-            ParaSITE shelters are custom built inflatable structures designed for homeless people that attach to the exterior outtake vents of a building's HVAC system.
+            Prometheus-1 and Prometheus-2 were P and N-class solid rocket motors respectively, designed to be cast at Zucrow Laboratories of Purdue University. Propellant grain geometries were developed inside of OpenMotor, custom components and assembly were modeled in Onshape, stress analysis was performed in ANSYS Mechanical, and nozzle analysis was done in ANSYS Fluent.
           </p>
-          <div class="version">v2024-11-06</div>
+          <div class="version">v2.0</div>
         </div>
         <div class="project" data-index="1" onclick="transitionToDetail(1)">
           <div class="tile-dot"></div>
-          <h2>Project Two</h2>
-          <div class="year">2023</div>
-          <div class="artist">Your Name</div>
+          <h2>Polaris</h2>
+          <div class="year">Spring 2025</div>
+          <div class="artist">Gilbert Chang, Jaden Hernandez, Darin Tsai, et al.</div>
           <div class="dash">-</div>
-          <img src="project2.jpg" alt="Project Two">
+          <img src="../media/img/polaris-1-1.png" alt="Polaris-1">
+          <img src="../media/img/polaris-1-2.png" alt="Polaris-1">
           <p class="description">
-            Brief description focusing on unique aspects, challenges, and solutions.
+            Polaris, a series of rockets utilizing COTS SRMs from Loki Research, is currently being designed utilizing Onshape, OpenRocket, and RocketPy. FEA and CFD were conducted utilizing the Ansys suite anintendedng to be manufactured at Bechtel Innovation and Design Center at Purdue University. Launch expected soon.
           </p>
           <div class="version">v1.0</div>
         </div>
         <div class="project" data-index="2" onclick="transitionToDetail(2)">
           <div class="tile-dot"></div>
-          <h2>Project Three</h2>
-          <div class="year">2024</div>
-          <div class="artist">Your Name</div>
+          <h2>FR3 Fin-Ray End Effectors</h2>
+          <div class="year">Spring 2025</div>
+          <div class="artist">Gilbert Chang, Zachary Kingston</div>
           <div class="dash">-</div>
-          <img src="project3.jpg" alt="Project Three">
+          <img src="../media/img/finray-2.png" alt="FR3 Fin-ray End Effectors" style="width: 0.3; height: auto;">
           <p class="description">
-            Short overview highlighting goals and achievements.
+            Utilizing Onshape, designed a pair of Franka Research 3 end effectors that utilize the fin-ray principle for compliance and reliability for grasping and manipulation. Used a Bambu Lab A1 mini 3D printer to fabricate the pair of end effectors.
           </p>
           <div class="version">v1.0</div>
         </div>
@@ -424,25 +143,34 @@
     // Project data array now has 8 items
     var projects = [
       {
-        title: "paraSITE",
-        year: "1998",
-        artist: "Michael Rakowitz",
-        description: "ParaSITE shelters are custom built inflatable structures designed for homeless people that attach to the exterior outtake vents of a building's HVAC system.",
-        version: "v2024-11-06",
-        image: "project1.jpg",
-        extra: "Here is more detailed content about paraSITE. It elaborates on the design, inspiration, and technical challenges."
+        title: "Prometheus",
+        year: "Spring 2025",
+        artist: "Gilbert Chang, Kurt Hidalgo",
+        description: "Prometheus-1 and Prometheus-2 were P and N-class solid rocket motors respectively, designed to be cast at Zucrow Laboratories of Purdue University. Propellant grain geometries were developed inside of OpenMotor, custom components and assembly were modeled in OnShape, stress analysis was performed in ANSYS Mechanical, and nozzle analysis was done in ANSYS Fluent.",
+        version: "v2.0",
+        image: "../media/img/prometheus-2.png",
+        extra: "Coming soon is supplemental information on work done by the team, including the design process, testing, and results."
       },
       {
-        title: "Project Two",
-        year: "2023",
-        artist: "Your Name",
-        description: "Brief description focusing on unique aspects, challenges, and solutions.",
+        title: "Polaris",
+        year: "Spring 2025",
+        artist: "Gilbert Chang",
+        description: "Polaris, a series of rockets utilizing COTS SRMs from Loki Research, is currently being designed utilizing Onshape, OpenRocket, and RocketPy. FEA and CFD were conducted utilizing the Ansys suite anintendedng to be manufactured at Bechtel Innovation and Design Center at Purdue University. Launch expected soon.",
         version: "v1.0",
-        image: "project2.jpg",
-        extra: "Extra details about Project Two, including its development process and innovative features."
+        image: "../media/img/polaris-1.png",
+        extra: ""
       },
       {
-        title: "Project Three",
+        title: "FR3 Fin-Ray End Effectors",
+        year: "Spring 2025",
+        artist: "Gilbert Chang, Zachary Kingston",
+        description: "Utilizing Onshape, designed a pair of Franka Research 3 end effectors that utilize the fin-ray principle for compliance and reliability for grasping and manipulation. Used a Bambu Lab A1 mini 3D printer to fabricate the pair of end effectors.",
+        version: "v1.0",
+        image: "../media/img/finray-2.png",
+        extra: "Additional insights into Project Five's testing and optimization process."
+      },
+      {
+        title: "Baja SAE Series",
         year: "2024",
         artist: "Your Name",
         description: "Short overview highlighting goals and achievements.",
@@ -451,22 +179,13 @@
         extra: "Additional insights on Project Three, with a deeper look at its impact and execution."
       },
       {
-        title: "Project Four",
+        title: "ME 26300 Final Project",
         year: "2025",
         artist: "Another Name",
         description: "A brief description of Project Four, highlighting its unique mechanical aspects.",
         version: "v1.0",
         image: "project4.jpg",
         extra: "Further details on design, methods, and lessons learned from Project Four."
-      },
-      {
-        title: "Project Five",
-        year: "2026",
-        artist: "Team Alpha",
-        description: "Project Five focuses on efficiency and innovative use of materials.",
-        version: "v1.0",
-        image: "project5.jpg",
-        extra: "Additional insights into Project Five's testing and optimization process."
       },
       {
         title: "Project Six",
@@ -476,24 +195,6 @@
         version: "v1.0",
         image: "project6.jpg",
         extra: "Deep dive into Project Six's collaboration efforts and final performance metrics."
-      },
-      {
-        title: "Project Seven",
-        year: "2028",
-        artist: "Team Beta",
-        description: "A new mechanical innovation with unique design and functionality.",
-        version: "v1.0",
-        image: "project7.jpg",
-        extra: "In-depth discussion of Project Seven's development and outcomes."
-      },
-      {
-        title: "Project Eight",
-        year: "2029",
-        artist: "Your Name",
-        description: "An exploration of advanced engineering techniques and creative solutions.",
-        version: "v1.0",
-        image: "project8.jpg",
-        extra: "Additional analysis and reflections on Project Eight's design process."
       }
     ];
 

@@ -1,199 +1,281 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
-
-* {
+ /* Basic Reset */
+ * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
-  font-family: 'Helvetica', sans-serif;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
-  background-color: #ADFE04;
-  color: rgb(0, 0, 0);
+html, body {
+  height: 100%;
+  background: #f5f5f5;
+  font-family: monospace;
+  color: #333;
 }
 
-button {
-  border: none;
-  cursor: pointer;
-  appearance: none;
-  background-color: inherit;
+/* SIDEBAR: fixed on the left, full height */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 100vh;
+    background: #fff;
+    border-right: 2px solid black;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 9999;
 }
 
-ul {
-  padding: 0;
+.sidebar:hover {
+    transform: translateX(10px);
 }
 
-li {
-  margin-bottom: 0 px;
+.blue-dot {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 15px;
+  background-color: #0047AB;
+  border-radius: 50%;
+}
+.sidebar-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-weight: bold;
+  font-size: 14px;
+}
+.sidebar-footer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
 }
 
-h1 {
-  font-family: 'Source Serif 4', serif;
-  line-height: 1.5;
-  font-size: 36px;
-  margin: 0;
-  font-weight: 450;
-}
-
-h2 {
-  font-size: 22px;
-  margin: 0;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-}
-
-h2 hr {
-  flex-grow: 1;
-  margin-left: 16px;
-  height: 1px;
-  background-color: #000000;
-  border: none;
-}
-
-h3 {
-  line-height: 1.5;
-  font-size: 20px;
-  margin: 0;
-  margin-bottom: 2px;
-  font-weight: 500;
-}
-
-p {
-  line-height: 1.5;
-  color: #000000;
-  margin: 0px 0 2px 0;
-}
-
-/* reduce the left margin of lists */
-ol, ul {
-  line-height: 1.5;
-  padding-left: 20px; /* Adjust the value as needed */
-  color: #000000;
-  
-}
-
-li {
-  line-height: 1.5;
-  margin: 0;
-  color: #000000;
-}
-
-a {
-  color: #000000;
-  text-decoration: none;
-}
-
-a:hover { text-decoration: underline;}
-
-/* layout */
-
-.outer-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.flex-container {
-  width: 100%;
-  max-width: 600px;
+/* MAIN CONTAINER to the right of the sidebar */
+.main {
+  position: relative;
+  margin-left: 40px;
+  height: 100vh;
+  overflow-y: visible;
+  overflow-x: hidden;
+  transition: opacity 0.3s ease;
   padding: 20px;
-  margin: 0 auto;
+  padding-bottom: 20px; /* Extra bottom padding for footer */
 }
 
-.text-container {
-  flex: 100;
-  min-width: 250px;
-  display: flex;
-  text-align: left;
-  text-justify: inter-word;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: left;
-  margin:2px;
-}
-
-.title {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.section {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-.subsection {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-  justify-content: center;
+/* GRID VIEW */
+#gridView {
   width: 100%;
+  /* Let grid view's height expand with its content */
+  transition: opacity 0.3s ease;
+}
+/* Force exactly 3 columns per row */
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Each project tile in the grid */
+.project {
+  position: relative;
+  background: #fff;
+  border: 2px solid black;
+  padding: 15px;
+  max-height: 600px; /* Using max-height so tiles shrink if needed */
+  box-shadow: 4px 4px 0 0 #333;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.project:hover {
+  transform: scale(1.02);
+}
+.project h2 {
+  font-size: 1.4rem;
   margin-bottom: 5px;
 }
+.year, .artist {
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+.dash {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+.project img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.description {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.version {
+  font-size: 0.8rem;
+  color: #777;
+  text-align: right;
+}
+/* Blue dot in corner of each tile */
+.tile-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  background-color: #0047AB;
+  border-radius: 50%;
+}
 
-
-/* heading and footer */
-
+/* Footer */
 .footer {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.0rem;
+  color: #777;
+}
+
+/* DETAIL VIEW: covers the main container, slides in from the right */
+#detailView {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 20px;
+}
+#detailView.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* detail-container: left mini-tiles + right large tile with equal vertical margins */
+.detail-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center; /* Aligns items vertically in the center */
-  margin-bottom: 15px;
+  width: 100%;
+  margin: 40px 0;
+  height: calc(100% - 80px);
+  gap: 20px;
 }
 
-.left-text {
-  text-align: left;
-  color: #000000;
+/* Left column: mini-tiles, widen to 350px */
+.detail-list {
+  width: 350px;
+  background: #fff;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0 0 #333;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.mini-project {
+  position: relative;
+  width: 300px;
+  background: #fff;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0 0 #333;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+.mini-project:not(.active):hover {
+  transform: scale(1.02);
+}
+.mini-project.active {
+  transform: translateX(10px) scale(1.02);
 }
 
-.right-text {
+/* Right column: large detail tile, fill remaining space */
+.detail-content {
+  position: relative;
+  flex: 1;
+  background: #fff;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0 0 #333;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.detail-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+.detail-content .year, .detail-content .artist {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+.detail-content .dash {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+.detail-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.detail-content .description {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.detail-content .extra {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.detail-content .version {
+  font-size: 0.9rem;
+  color: #777;
   text-align: right;
 }
 
-
-.title-text {
-  margin-top: 5px;
-}
-
-/* media */
-
-.title-img {
-  height: 120px;
-  width: 120px;
-}
-
-.title-img * {
-  width: 100%;
-  border-radius: 3px;
-  border: 1px solid #ADFE04;
-}
-
-.project-media {
-  margin: 10px;
-  width: 100%;
-  max-width: 165px;
+/* Overlapping X button inside the large tile */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0 0 #333;
+  border-radius: 0;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  z-index: 999;
 }
-
-img {
-  border-radius: 3px;
-  width: 100%;
-  margin:auto;
-  margin-top: 3px;
-}
-
-.project-media * {
-  border-radius: 3px;
-  width: 100%;
-  margin:auto;
-  margin-top: 3px;
+.close-button:hover {
+  transform: scale(1.05);
 }
