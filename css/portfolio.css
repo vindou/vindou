@@ -293,6 +293,7 @@ html, body {
   justify-content: center;
   transition: transform 0.2s ease;
   z-index: 999;
+  color: #000;
 }
 .close-button:hover {
   transform: scale(1.05);
