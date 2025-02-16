@@ -74,31 +74,54 @@ html, body {
   padding-bottom: 20px; /* Extra bottom padding for footer */
 }
 
-/* GRID VIEW */
 #gridView {
   width: 100%;
-  /* Let grid view's height expand with its content */
   transition: opacity 0.3s ease;
 }
-/* Force exactly 3 columns per row */
+
+/* Modified row class with responsive grid */
 .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  /* Default for mobile: 1 column */
+  grid-template-columns: 1fr;
 }
 
-/* Each project tile in the grid */
+/* Tablet breakpoint */
+@media screen and (min-width: 768px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop breakpoint */
+@media screen and (min-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Project tile adjustments for mobile */
 .project {
   position: relative;
   background: #fff;
   border: 2px solid black;
   padding: 15px;
-  max-height: 800px; /* Using max-height so tiles shrink if needed */
+  max-height: none; /* Remove fixed height constraint for mobile */
   box-shadow: 4px 4px 0 0 #333;
   cursor: pointer;
   transition: transform 0.2s ease;
   display: flex;
   flex-direction: column;
+  width: 100%; /* Ensure full width on mobile */
+}
+
+/* Adjust image sizing for mobile */
+.project img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 .project:hover {
   transform: scale(1.02);
@@ -114,11 +137,6 @@ html, body {
 .dash {
   margin: 10px 0;
   font-size: 1.1rem;
-}
-.project img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
 }
 .description {
   flex: 1;
@@ -278,4 +296,45 @@ html, body {
 }
 .close-button:hover {
   transform: scale(1.05);
+}
+
+/* Adjust image sizing for mobile */
+.project img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Adjust text sizing for mobile */
+@media screen and (max-width: 767px) {
+  .project h2 {
+    font-size: 1.2rem;
+  }
+
+  .year, .artist {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Detail view adjustments for mobile */
+@media screen and (max-width: 767px) {
+  .detail-container {
+    flex-direction: column;
+    margin: 20px 0;
+  }
+
+  .detail-list {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .mini-project {
+    width: 100%;
+  }
 }
