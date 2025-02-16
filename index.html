@@ -1,58 +1,162 @@
----
-layout: default
-title: Gilbert Chang
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MAIN</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<div class="title">
-  <div class="subsection">
-    <div class="text-container title-text">
+    /* Body styling */
+    html, body {
+      height: 100%;
+      font-family: monospace;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* Sidebar: fixed on the left, full height */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 100vh;
+      background: #fff;
+      border-right: 2px solid black;
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+      transition: transform 0.3s ease; /* Pop-out on hover */
+    }
+    .sidebar:hover {
+      transform: translateX(10px);
+    }
+
+    /* Blue dot in the sidebar corner */
+    .blue-dot {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 15px;
+      background-color: #0047AB;
+      border-radius: 50%;
+    }
+
+    /* Vertical text in the sidebar */
+    .sidebar-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* Footer-like text at the bottom of the sidebar */
+    .sidebar-footer {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%, 0) rotate(180deg);
+      writing-mode: vertical-rl;
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Main content area to the right of the sidebar */
+    .main {
+      margin-left: 40px; /* Leaves space for fixed sidebar */
+      min-height: 100vh;
+      display: flex;            /* Center content both horizontally and vertically */
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Content box with thick border and shadow */
+    .content-tile {
+      position: relative;  /* So we can absolutely position the dot inside */
+      background: #fff;
+      border: 2px solid black;
+      box-shadow: 4px 4px 0 0 #333;
+      padding: 20px;
+      max-width: 800px; /* Adjust as desired */
+      width: 100%;       /* Let it shrink or grow as needed */
+      transition: transform 0.2s ease; /* For pop-out hover effect */
+    }
+    /* Hover scale effect */
+    .content-tile:hover {
+      transform: scale(1.02);
+    }
+
+    /* Blue dot in the top-right corner of the main box */
+    .content-dot {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 15px;
+      height: 15px;
+      background-color: #0047AB;
+      border-radius: 50%;
+    }
+
+    /* Basic headings and text spacing */
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    /* Optional styling for small info lines */
+    .small-text {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <a class="sidebar" href="https://gilcha.com/portfolio">
+    <div class="blue-dot"></div>
+    <div class="sidebar-content">portfolio</div>
+    <div class="sidebar-footer">2025-02-15</div>
+  </a>
+
+  <!-- Main content, centered -->
+  <div class="main">
+    <!-- Content tile (box) with thick border, shadow, and hover pop-out -->
+    <div class="content-tile">
+      <!-- Blue dot in top-right corner of the main box -->
+      <div class="content-dot"></div>
+
       <h1>Gilbert Chang</h1>
-      <p><i>chang940 &lt;at&gt; purdue &lt;dot&gt; edu</i></p>
-    </div>
-  </div>
-</div>
-<div class="text-container">
-  <p>
-    Undergraduate student at <a href="https://www.purdue.edu/">Purdue University</a>. Studying <a href="https://engineering.purdue.edu/ME">ME</a>,
-    <a href="https://www.cs.purdue.edu/">CS</a>, and
-    <a href="https://www.math.purdue.edu/">Math</a>.
-  </p>
-</div>
+      <p class="small-text">chang940 &lt;at&gt; purdue &lt;dot&gt; edu</p>
+      <p>Undergraduate student at Purdue University, studying ME, CS, and Math.</p>
 
-<div class="section">
-  <div class="text-container">
-    <h2>Teaching<hr></h2>
-  </div>
-  <div class="subsection">
-    <div class="text-container">
-      <p><a href="https://engineering.purdue.edu/ECE/Academics/Undergraduates/UGO/CourseInfo/courseInfo?courseid=716&show=true&type=undergrad">
-        ECE 20001: Linear Circuit Analysis I</a> — Summer 2024 (UTA)</p>
-    </div>
-  </div>
-</div>
+      <h2>Teaching</h2>
+      <p>ECE 20001: Linear Circuit Analysis I — Summer 2024 (UTA)</p>
 
-
-<div class="section">
-  <div class="text-container">
-    <h2>Research<hr></h2>
-  </div>
-  <div class="subsection">
-    <div class="text-container">
+      <h2>Research</h2>
       <p>
-        Currently working under the guidance of <a href="https://zkingston.com/">Zak Kingston</a> and <a href="https://saiccoumar.github.io/">Sai Coumar</a> at the <a href="https://commalab.org/">CoMMA lab</a>, as well as <a href="https://www.purdue.edu/engineering/cairesearchgroup/?_ga=2.107071626.982410844.1737427448-1314664790.1715009920">Jie Cai</a> at <a href="https://engineering.purdue.edu/Herrick">Herrick Laboratories</a>.<br>
-        <br>
-        Previously worked with <a href="https://engineering.purdue.edu/ME/People/ptProfile?resource_id=80194">Jitesh Panchal</a> on generative design research. Research interests include electromechanical systems, classical control theory, and robotics.
+        Currently working under the guidance of Zak Kingston and Sai Courmar at the CoMMA lab,
+        as well as Jie Cai at Herrick Laboratories. Research interests include:
+        <em>electromechanical systems</em>, <em>controls</em>, and <em>robotics</em>.
       </p>
     </div>
   </div>
-</div>
-
-<div class="section footer">
-  <!--- <div class="left-text">
-    <a href="https://gilcha.com/blog">Blog</a>
-  </div> --->
-  <div class="right-text">
-    <p>Last Updated: {{ site.time | date: "%m%d%Y" }}</p>
-  </div>
-</div>
-
+</body>
+</html>
