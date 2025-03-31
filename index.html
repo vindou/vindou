@@ -84,6 +84,23 @@
             color: #717279;
             text-align: center;
         }
+        details {
+            margin: 1em 0;
+        }
+        summary {
+            cursor: pointer;
+            padding: 0.5em 0;
+        }
+        summary:hover {
+            color: #666;
+        }
+        details ul {
+            margin-top: 0.5em;
+            padding-left: 1.5em;
+        }
+        details li {
+            margin: 0.25em 0;
+        }
         @media (max-width: 768px) {
             .container {
                 padding: 68px 16px 96px;
@@ -105,7 +122,7 @@
     <div class="container">
         <header class="header">
             <h1>gilbert chang(<span class="chinese"><b>张博淵</b></span>)</h1>
-            <div class="date">march 26, 2025</div>
+            <div class="date">march 31, 2025</div>
         </header>
 
         <section>
@@ -131,40 +148,41 @@
                 <p>
                     i'm also involved in research as an undergraduate research assistant at both the computational motion, manipulation, and autonomy (commma) laboratory and herrick laboratories, where i focus on robotics and heat pump control.
                 </p>
-                <p>
-                    here are some mechanical engineering classes i've taken/am taking:
-                </p>
-                <ul>
-                    <li>me 200: thermodynamics 1</li>
-                    <li>me 270: mechanics 1 (statics)</li>
-                    <li>me 274: mechanics 2 (dynamics)</li>
-                    <li>me 308: fluid mechanics</li>
-                    <li>me 315: heat and mass transfer</li>
-                    <li>me 323: mechanics of materials</li>
-                    <li>me 354: machine design 1</li>
-                    <li>me 365: measurement and control systems 1</li>
-                    <li>me 375: measurement and control systems 2</li>
-                    <li>me 475: automatic control systems</li>
-                    <li>me 562: advanced dynamics</li>
-                    <li>me 563: mechanical vibrations</li>
-                    <li>me 588: mechatronics</li>
-                    <li>me 593: solid mechanics 1</li>
-                    <li>me 595: solid mechanics 2</li>
-                </ul>
-                <p>
-                    here are some computer science classes i've taken/am taking:
-                </p>
-                <ul>
-                    <li>cs 180: problem solving and object oriented programming</li>
-                    <li>cs 182: foundations of computer science (discrete math)</li>
-                    <li>cs 240: c programming</li>
-                    <li>cs 250: computer architecture</li>
-                    <li>cs 251: data structures and algorithms</li>
-                    <li>cs 252: systems programming</li>
-                    <li>cs 381: analysis of algorithms</li>
-                    <li>cs 458: introduction to robotics</li>
-                    <li>cs 471: introduction to artificial intelligence</li>
-                </ul>
+
+                <details>
+                    <summary>mechanical engineering classes</summary>
+                    <ul>
+                        <li>me 200: thermodynamics 1</li>
+                        <li>me 270: mechanics 1 (statics)</li>
+                        <li>me 274: mechanics 2 (dynamics)</li>
+                        <li>me 308: fluid mechanics</li>
+                        <li>me 315: heat and mass transfer</li>
+                        <li>me 323: mechanics of materials</li>
+                        <li>me 354: machine design 1</li>
+                        <li>me 365: measurement and control systems 1</li>
+                        <li>me 375: measurement and control systems 2</li>
+                        <li>me 475: automatic control systems</li>
+                        <li>me 562: advanced dynamics</li>
+                        <li>me 563: mechanical vibrations</li>
+                        <li>me 588: mechatronics</li>
+                        <li>me 593: solid mechanics 1</li>
+                        <li>me 595: solid mechanics 2</li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>computer science classes</summary>
+                    <ul>
+                        <li>cs 180: problem solving and object oriented programming</li>
+                        <li>cs 182: foundations of computer science (discrete math)</li>
+                        <li>cs 240: c programming</li>
+                        <li>cs 250: computer architecture</li>
+                        <li>cs 251: data structures and algorithms</li>
+                        <li>cs 252: systems programming</li>
+                        <li>cs 381: analysis of algorithms</li>
+                        <li>cs 458: introduction to robotics</li>
+                        <li>cs 471: introduction to artificial intelligence</li>
+                    </ul>
+                </details>
             </div>
         </section>
     </div>
