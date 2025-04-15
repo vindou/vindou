@@ -3,182 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gilbert Chang</title>
-    <link rel="icon" type="image/png" href="cover.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <title>Countdown to May 19th, 2026</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Manrope', sans-serif;
-            font-weight: 600;
-            line-height: 1.6;
-            background: #F8F8F8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
         }
-        .chinese {
-            font-family: 'Noto Sans SC', sans-serif;
-            font-weight: 400;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 68px 32px 192px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 56px;
-        }
-        .image-container {
-            position: sticky;
-            top: 64px;
-        }
-        .aspect-ratio-box {
-            position: relative;
-            padding-bottom: 50%;
-        }
-        img {
-            position: absolute;
-            top: -32px;
-            left: -32px;
-            width: calc(100% + 64px);
-            height: 100%;
-            object-fit: cover;
-            margin: 0;
-            border-radius: 8px;
-        }
-        .content {
-            background: white;
-            padding: 48px 100px;
-            margin-top: calc(-50% + 300px);
-            position: relative;
-            border-radius: 8px;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.25em;
+        .countdown-container {
             text-align: center;
         }
-        h2 {
-            font-size: 1.25em;
-            margin-top: 0.5em;
-            margin-bottom: 0.1em;
-            color: #333;
+        .countdown {
+            font-size: 8vw;
+            font-weight: bold;
+            margin: 20px 0;
         }
-        a {
-            color: #000;
+        .label {
+            font-size: 2vw;
+            opacity: 0.8;
         }
-        .date {
-            color: #717279;
-            font-size: 1em;
-            margin-bottom: 2em;
-            text-align: center;
+        .units {
+            display: flex;
+            justify-content: center;
+            gap: 0;
         }
-        .footer {
-            margin-top: 4em;
-            font-size: 0.9em;
-            color: #717279;
-            text-align: center;
+        .unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        details {
-            margin: 0.25em 0;
+        .colon {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10px;
         }
-        summary {
-            cursor: pointer;
-            padding: 0.25em 0;
-        }
-        summary:hover {
-            color: #666;
-        }
-        details ul {
-            margin-top: 0.25em;
-            padding-left: 1.5em;
-        }
-        details li {
-            margin: 0.25em 0;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 68px 16px 96px;
-            }
-            .content {
-                padding: 48px 24px;
-            }
-            .header {
-                margin-bottom: 36px;
-            }
-            img {
-                left: -18px;
-                width: calc(100% + 32px);
-            }
+        .colon span {
+            height: 8vw;
+            line-height: 8vw;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>gilbert chang(<span class="chinese"><b>张博淵</b></span>)</h1>
-            <div class="date">march 31, 2025</div>
-        </header>
-
-        <section>
-            <div class="image-container">
-                <div class="aspect-ratio-box">
-                    <img src="cover.png" alt="Technical drawing in watercolor style">
+    <div class="countdown-container">
+        <div class="countdown">
+            <div class="units">
+                <div class="unit">
+                    <span id="days">00</span>
+                </div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit">
+                    <span id="hours">00</span>
+                </div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit">
+                    <span id="minutes">00</span>
+                </div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit">
+                    <span id="seconds">00</span>
+                </div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit">
+                    <span id="milliseconds">000</span>
                 </div>
             </div>
-
-            <div class="content">
-                <p>chang940 &lt;at&gt; purdue &lt;dot&gt; edu</br> <a href="./resume.pdf">resume</a> | <a href="https://github.com/vindou">github</a> | <a href="https://www.linkedin.com/in/gilchang">linkedin</a></p>
-                <p>
-                    i'm a second year undergraduate student studying mechanical engineering and computer science at purdue university. currently working on applying to the mechanical engineering master's thesis program here.
-                </p>
-                <p>
-                    this summer, i'll be joining persona ai as a mechanical engineering intern, supporting the development of their humanoid robotic platform. special thanks to <a href="https://www.linkedin.com/in/~ali/">ali ahmad</a> and <a href="https://www.linkedin.com/in/jacob-zietek/">jacob zietek</a> for their help in making this happen.
-                </p>
-                <p>
-                    at purdue, i founded and currently lead a rocketry team focused on building ahigh altitude sounding rocket. i also work on shipping aerodynamics packages for purdue baja sae.
-                </p>
-                <p>
-                    i'm also involved in research as an undergraduate research assistant at both the computational motion, manipulation, and autonomy (commma) laboratory and herrick laboratories, where i focus on robotics and heat pump control.
-                </p>
-
-                <details>
-                    <summary>mechanical engineering classes</summary>
-                    <ul>
-                        <li>me 200: thermodynamics 1</li>
-                        <li>me 270: mechanics 1 (statics)</li>
-                        <li>me 274: mechanics 2 (dynamics)</li>
-                        <li>me 308: fluid mechanics</li>
-                        <li>me 315: heat and mass transfer</li>
-                        <li>me 323: mechanics of materials</li>
-                        <li>me 354: machine design 1</li>
-                        <li>me 365: measurement and control systems 1</li>
-                        <li>me 375: measurement and control systems 2</li>
-                        <li>me 475: automatic control systems</li>
-                        <li>me 563: mechanical vibrations</li>
-                    </ul>
-                </details>
-                <details>
-                    <summary>computer science classes</summary>
-                    <ul>
-                        <li>cs 180: problem solving and object oriented programming</li>
-                        <li>cs 182: foundations of computer science (discrete math)</li>
-                        <li>cs 240: c programming</li>
-                        <li>cs 250: computer architecture</li>
-                        <li>cs 251: data structures and algorithms</li>
-                        <li>cs 252: systems programming</li>
-                        <li>cs 381: analysis of algorithms</li>
-                        <li>cs 458: introduction to robotics</li>
-                        <li>cs 471: introduction to artificial intelligence</li>
-                    </ul>
-                </details>
-            </div>
-        </section>
+        </div>
     </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('2026-05-19T23:59:00-05:00'); // May 19th, 2026, 11:59 PM EST
+            const now = new Date();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            const milliseconds = Math.floor((difference % 1000));
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('milliseconds').textContent = String(milliseconds).padStart(3, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1);
+    </script>
 </body>
 </html>
