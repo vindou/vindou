@@ -8,7 +8,7 @@ class ASCIIGrid {
             this.canvas = document.createElement('canvas');
             this.ctx = this.canvas.getContext('2d', { alpha: false });
             this.grid = [];
-            this.cellSize = 60;
+            this.cellSize = 80;
             this.wavePosition = 0;
             this.waveSpeed = 0.009;
             this.baseWidth = 0.5;
@@ -21,7 +21,7 @@ class ASCIIGrid {
                 [3, 11, 1, 9],
                 [15, 7, 13, 5]
             ];
-            this.asciiChars = [' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▉', '▊', '▋', '▌', '▍', '▎', '▏'];
+            this.asciiChars = ['▅', '▆', '▇', '█'];
             this.pixelRatio = window.devicePixelRatio || 1;
 
             this.init();
