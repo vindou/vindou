@@ -37,7 +37,8 @@ class ASCIIGrid {
         this.canvas.style.zIndex = '-1';
         this.canvas.style.width = '100%';
         this.canvas.style.height = '100%';
-        this.canvas.style.display = 'none'; // Hide by default
+        this.canvas.style.display = 'none';
+        this.canvas.style.filter = 'blur(20px)';
         document.body.appendChild(this.canvas);
 
         // Only show canvas on desktop
