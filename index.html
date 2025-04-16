@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>countdown</title>
     <link rel="preload" href="data:," as="fetch">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
@@ -14,43 +20,77 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: left;
+            align-items: center;
             min-height: 100vh;
             background-color: #ffffff;
-            color: #000000;
+            color: white;
             font-family: Manrope;
             font-weight: 800;
             position: relative;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
+
         .countdown-container {
             text-align: center;
-            margin: 0 0 0 80px;
+            margin: 20px;
             position: relative;
             z-index: 1;
-            color:white;
+            width: 100%;
+            max-width: 800px;
             mix-blend-mode: difference;
         }
+
         .countdown {
-            font-size: 5vw;
+            font-size: clamp(2rem, 5vw, 4rem);
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
         }
+
         .units {
             display: flex;
-            justify-content: left;
+            justify-content: center;
             gap: 0;
+            flex-wrap: wrap;
         }
+
         .unit {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-width: 2ch;
         }
+
         .colon {
             display: flex;
             flex-direction: column;
-            padding: 0 10px;
+            padding: 0 5px;
         }
+
         .colon span {
-            height: 5vw;
-            line-height: 5vw;
+            height: 1em;
+            line-height: 1em;
+        }
+
+        @media (max-width: 480px) {
+            .countdown-container {
+                margin: 10px;
+            }
+
+            .countdown {
+                font-size: clamp(1.5rem, 4vw, 3rem);
+            }
+
+            .colon {
+                padding: 0 2px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .countdown {
+                font-size: clamp(1.2rem, 3vw, 2.5rem);
+            }
         }
     </style>
 </head>

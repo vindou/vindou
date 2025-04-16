@@ -18,31 +18,47 @@ class ASCIIGrid {
         ];
         this.asciiChars = [' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▉', '▊', '▋', '▌', '▍', '▎', '▏'];
         this.pixelRatio = window.devicePixelRatio || 1;
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        // Adjust parameters for mobile
+        if (this.isMobile) {
+            this.cellSize = 40;
+            this.waveSpeed = 0.006;
+            this.frequency = 300;
+        }
 
         this.init();
     }
 
     init() {
-        // Set canvas to full screen
         this.canvas.style.position = 'fixed';
         this.canvas.style.top = '0';
         this.canvas.style.left = '0';
         this.canvas.style.zIndex = '-1';
         this.canvas.style.width = '100%';
         this.canvas.style.height = '100%';
+        this.canvas.style.touchAction = 'none';
         document.body.appendChild(this.canvas);
+
         this.resize();
         window.addEventListener('resize', () => this.resize());
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => this.resize(), 100);
+        });
+
         this.createGrid();
         this.animate();
     }
 
     resize() {
-        this.canvas.style.width = window.innerWidth + 'px';
-        this.canvas.style.height = window.innerHeight + 'px';
+        const width = window.innerWidth;
+        const height = window.innerHeight;
 
-        this.canvas.width = window.innerWidth * this.pixelRatio;
-        this.canvas.height = window.innerHeight * this.pixelRatio;
+        this.canvas.style.width = width + 'px';
+        this.canvas.style.height = height + 'px';
+
+        this.canvas.width = width * this.pixelRatio;
+        this.canvas.height = height * this.pixelRatio;
 
         this.ctx.scale(this.pixelRatio, this.pixelRatio);
         this.ctx.font = `${this.cellSize}px monospace`;
@@ -51,8 +67,10 @@ class ASCIIGrid {
     }
 
     createGrid() {
-        const cols = Math.ceil(window.innerWidth / this.cellSize);
-        const rows = Math.ceil(window.innerHeight / this.cellSize);
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const cols = Math.ceil(width / this.cellSize);
+        const rows = Math.ceil(height / this.cellSize);
 
         this.grid = [];
         for (let y = 0; y < rows; y++) {
@@ -111,16 +129,13 @@ class ASCIIGrid {
     }
 
     draw() {
-        // Clear the canvas
         this.ctx.fillStyle = '#000';
         this.ctx.fillRect(0, 0, this.canvas.width / this.pixelRatio, this.canvas.height / this.pixelRatio);
 
-        // Set text properties
         this.ctx.fillStyle = '#fff';
         this.ctx.textAlign = 'center';
         this.ctx.textBaseline = 'middle';
 
-        // Draw grid
         for (let y = 0; y < this.grid.length; y++) {
             for (let x = 0; x < this.grid[y].length; x++) {
                 const cell = this.grid[y][x];
