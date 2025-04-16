@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown</title>
+    <link rel="preload" href="data:," as="fetch">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
         body {
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: left;
             min-height: 100vh;
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Manrope;
+            font-weight: 800;
+            position: relative;
         }
         .countdown-container {
             text-align: center;
+            margin: 0 0 0 80px;
+            position: relative;
+            z-index: 1;
+            color:white;
+            mix-blend-mode: difference;
         }
         .countdown {
-            font-size: 8vw;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        .label {
-            font-size: 2vw;
-            opacity: 0.8;
+            font-size: 5vw;
         }
         .units {
             display: flex;
-            justify-content: center;
+            justify-content: left;
             gap: 0;
         }
         .unit {
@@ -40,12 +46,11 @@
         .colon {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             padding: 0 10px;
         }
         .colon span {
-            height: 8vw;
-            line-height: 8vw;
+            height: 5vw;
+            line-height: 5vw;
         }
     </style>
 </head>
@@ -53,50 +58,82 @@
     <div class="countdown-container">
         <div class="countdown">
             <div class="units">
-                <div class="unit">
-                    <span id="days">00</span>
-                </div>
+                <div class="unit"><span id="days1">00</span></div>
                 <div class="colon"><span>:</span></div>
-                <div class="unit">
-                    <span id="hours">00</span>
-                </div>
+                <div class="unit"><span id="hours1">00</span></div>
                 <div class="colon"><span>:</span></div>
-                <div class="unit">
-                    <span id="minutes">00</span>
-                </div>
+                <div class="unit"><span id="minutes1">00</span></div>
                 <div class="colon"><span>:</span></div>
-                <div class="unit">
-                    <span id="seconds">00</span>
-                </div>
+                <div class="unit"><span id="seconds1">00</span></div>
                 <div class="colon"><span>:</span></div>
-                <div class="unit">
-                    <span id="milliseconds">000</span>
-                </div>
+                <div class="unit"><span id="milliseconds1">000</span></div>
             </div>
         </div>
     </div>
 
+    <div class="countdown-container">
+        <div class="countdown">
+            <div class="units">
+                <div class="unit"><span id="days2">00</span></div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit"><span id="hours2">00</span></div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit"><span id="minutes2">00</span></div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit"><span id="seconds2">00</span></div>
+                <div class="colon"><span>:</span></div>
+                <div class="unit"><span id="milliseconds2">000</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="animation.js"></script>
     <script>
-        function updateCountdown() {
-            const targetDate = new Date('2026-05-17T23:59:00-05:00'); // May 19th, 2026, 11:59 PM EST
-            const now = new Date();
-            const difference = targetDate - now;
+        (function() {
+            const targetDate1 = new Date('2026-05-17T23:59:00-05:00');
+            const targetDate2 = new Date('2025-05-08T12:30:00-05:00');
+            const elements1 = {
+                days: document.getElementById('days1'),
+                hours: document.getElementById('hours1'),
+                minutes: document.getElementById('minutes1'),
+                seconds: document.getElementById('seconds1'),
+                milliseconds: document.getElementById('milliseconds1')
+            };
+            const elements2 = {
+                days: document.getElementById('days2'),
+                hours: document.getElementById('hours2'),
+                minutes: document.getElementById('minutes2'),
+                seconds: document.getElementById('seconds2'),
+                milliseconds: document.getElementById('milliseconds2')
+            };
 
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-            const milliseconds = Math.floor((difference % 1000));
+            function updateCountdown(targetDate, elements) {
+                const now = Date.now();
+                const difference = targetDate - now;
 
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            document.getElementById('milliseconds').textContent = String(milliseconds).padStart(3, '0');
-        }
+                if (difference <= 0) return;
 
-        updateCountdown();
-        setInterval(updateCountdown, 1);
+                const days = Math.floor(difference / 86400000);
+                const hours = Math.floor((difference % 86400000) / 3600000);
+                const minutes = Math.floor((difference % 3600000) / 60000);
+                const seconds = Math.floor((difference % 60000) / 1000);
+                const milliseconds = difference % 1000;
+
+                elements.days.textContent = String(days).padStart(2, '0');
+                elements.hours.textContent = String(hours).padStart(2, '0');
+                elements.minutes.textContent = String(minutes).padStart(2, '0');
+                elements.seconds.textContent = String(seconds).padStart(2, '0');
+                elements.milliseconds.textContent = String(milliseconds).padStart(3, '0');
+            }
+
+            function updateBoth() {
+                updateCountdown(targetDate1, elements1);
+                updateCountdown(targetDate2, elements2);
+                requestAnimationFrame(updateBoth);
+            }
+
+            updateBoth();
+        })();
     </script>
 </body>
 </html>
