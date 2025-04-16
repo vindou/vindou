@@ -1,36 +1,36 @@
 class ASCIIGrid {
     constructor() {
-        this.canvas = document.createElement('canvas');
-        this.ctx = this.canvas.getContext('2d', { alpha: false });
-        this.grid = [];
-        this.cellSize = 60;
-        this.wavePosition = 0;
-        this.waveSpeed = 0.009;
-        this.baseWidth = 0.5;
-        this.amplitude = 0.05;
-        this.frequency = 500;
-        this.phase = 0;
-        this.ditherMatrix = [
-            [0, 8, 2, 10],
-            [12, 4, 14, 6],
-            [3, 11, 1, 9],
-            [15, 7, 13, 5]
-        ];
-        this.asciiChars = [' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▉', '▊', '▋', '▌', '▍', '▎', '▏'];
-        this.pixelRatio = window.devicePixelRatio || 1;
+        // Check if we're on a mobile device
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        // Adjust parameters for mobile
-        if (this.isMobile) {
-            this.cellSize = 40;
-            this.waveSpeed = 0.006;
-            this.frequency = 300;
-        }
+        // Only initialize if not on mobile
+        if (!this.isMobile) {
+            this.canvas = document.createElement('canvas');
+            this.ctx = this.canvas.getContext('2d', { alpha: false });
+            this.grid = [];
+            this.cellSize = 60;
+            this.wavePosition = 0;
+            this.waveSpeed = 0.009;
+            this.baseWidth = 0.5;
+            this.amplitude = 0.05;
+            this.frequency = 500;
+            this.phase = 0;
+            this.ditherMatrix = [
+                [0, 8, 2, 10],
+                [12, 4, 14, 6],
+                [3, 11, 1, 9],
+                [15, 7, 13, 5]
+            ];
+            this.asciiChars = [' ', '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▉', '▊', '▋', '▌', '▍', '▎', '▏'];
+            this.pixelRatio = window.devicePixelRatio || 1;
 
-        this.init();
+            this.init();
+        }
     }
 
     init() {
+        if (this.isMobile) return;
+
         this.canvas.style.position = 'fixed';
         this.canvas.style.top = '0';
         this.canvas.style.left = '0';
@@ -51,6 +51,8 @@ class ASCIIGrid {
     }
 
     resize() {
+        if (this.isMobile) return;
+
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -67,6 +69,8 @@ class ASCIIGrid {
     }
 
     createGrid() {
+        if (this.isMobile) return;
+
         const width = window.innerWidth;
         const height = window.innerHeight;
         const cols = Math.ceil(width / this.cellSize);
@@ -86,11 +90,13 @@ class ASCIIGrid {
     }
 
     getDitherValue(x, y) {
+        if (this.isMobile) return 0;
         const matrixSize = 4;
         return this.ditherMatrix[y % matrixSize][x % matrixSize] / 16;
     }
 
     getCharFromIntensity(intensity, x, y) {
+        if (this.isMobile) return ' ';
         const ditherValue = this.getDitherValue(x, y);
         const adjustedIntensity = Math.min(1, Math.max(0, intensity + ditherValue));
         const index = Math.floor(adjustedIntensity * (this.asciiChars.length - 1));
@@ -98,10 +104,13 @@ class ASCIIGrid {
     }
 
     calculateLocalWidth(position) {
+        if (this.isMobile) return 0;
         return (this.baseWidth / 2) + this.amplitude * Math.sin(this.frequency * position + this.phase);
     }
 
     updateWave() {
+        if (this.isMobile) return;
+
         this.wavePosition += this.waveSpeed;
         this.phase += 0.02;
         if (this.wavePosition > 2) {
@@ -129,6 +138,8 @@ class ASCIIGrid {
     }
 
     draw() {
+        if (this.isMobile) return;
+
         this.ctx.fillStyle = '#000';
         this.ctx.fillRect(0, 0, this.canvas.width / this.pixelRatio, this.canvas.height / this.pixelRatio);
 
@@ -148,6 +159,8 @@ class ASCIIGrid {
     }
 
     animate() {
+        if (this.isMobile) return;
+
         this.updateWave();
         this.draw();
         requestAnimationFrame(() => this.animate());
