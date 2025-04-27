@@ -40,11 +40,11 @@ h1 {
 }
 
 h2, h3 {
-    font-family: 'Styrene', sans-serif;
     font-weight: bold;
 }
 
 h2 {
+    font-family: 'TiemposHeadline', serif;
     font-size: 1.5rem;
     margin: 0.25rem 0;
 }
