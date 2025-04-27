@@ -4,105 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gilbert Chang</title>
-    <style>
-        body {
-            font-family: 'Times New Roman', serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 700px;
-            padding: 0rem;
-        }
-        .contact {
-            margin: 0.5rem 0;
-            max-width: 300px;
-        }
-        .section {
-            margin: 2rem 0;
-        }
-        .research-item {
-            display: flex;
-            gap: 20px;
-            margin: 1rem 0;
-        }
-        .research-image {
-            height: 100%;
-            width: auto;
-            object-fit: contain;
-            max-height: 150px;
-        }
-        .research-content {
-            flex: 1;
-        }
-        .research-content h3 {
-            margin-top: 0;
-        }
-        .research-links {
-            margin-top: 10px;
-        }
-        .research-links a {
-            margin-right: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Gilbert Chang</h1>
+        <p class="nav-links">
+            <a href="/">Home</a> / <a href="/notes.html">Notes</a> / <a href="/assets/resume.pdf">Resume</a>
+        </p>
+        <h1>
+            <a href="/" class="site-title">Gilbert Chang</a>
+        </h1>
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a third-year undergraduate student at Purdue University studying mechanical
+                engineering and computer science (concentration in computational science and
+                engineering).
+            </p>
 
-        <div class="contact">
-            <a href="https://github.com/vindou" target="_blank">GitHub</a> |
-            <a href="https://www.linkedin.com/in/gilchang/" target="_blank">LinkedIn</a> |
-            <a href="resume.pdf">Resume</a> <!-- |
-            <a href="https://scholar.google.com/citations?user=n41f-QsAAAAJ&hl=en" target="_blank">Google Scholar</a>-->
+            <p>
+                Broadly, my interests lie in robotics, classical control theory, and computational design. I'm particularly passionate about developing methods that facilitate seamless human-robot collaboration. Currently, I'm exploring enhancements to the code in <a href="https://github.com/KavrakiLab/vamp">the Vector Accelerated Motion Planning (VAMP) repository</a>, originally developed by my mentor Zachary Kingston and collaborators. My goal is to enable robots to effectively consider human perspectives while performing real-time motion planning.
+            </p>
+
+            <p>
+                Currently working at the <a href="https://www.purdue.edu/engineering/cairesearchgroup/">Cai Group</a>, advised
+                by <a href="https://engineering.purdue.edu/ME/People/ptProfile?resource_id=71762&group_id=11989">Dr. Jie Cai</a> at <a href="https://engineering.purdue.edu/Herrick">Herrick Laboratories</a>. I spend most of my time at
+                the <a href="https://commalab.org/">CoMMA Lab</a>, advised by <a href="https://zkingston.com/">Zachary Kingston</a>, at Purdue University's Department of Computer Science.
+            </p>
         </div>
-        <img src="email.png" alt ="Email" class = "contact">
-
-        <p>I hate bloated Next.js personal websites. Here's a single HTML file.</p>
-
-        <p>I'm a third-year undergraduate student at Purdue University studying mechanical
-            engineering and computer science (concentration in computational science and
-            engineering).
-        </p>
-
-        <p>
-            Broadly, my interests lie in robotics, classical control theory, and computational design. I'm particularly passionate about developing methods that facilitate seamless human-robot collaboration. Currently, I'm exploring enhancements to the code in <a href="https://github.com/KavrakiLab/vamp">the Vector Accelerated Motion Planning (VAMP) repository</a>, originally developed by my mentor Zachary Kingston and collaborators. My goal is to enable robots to effectively consider human perspectives while performing real-time motion planning.
-        </p>
-
-        <p>
-            Currently working at the <a href="https://www.purdue.edu/engineering/cairesearchgroup/">Cai Group</a>, advised
-            by <a href="https://engineering.purdue.edu/ME/People/ptProfile?resource_id=71762&group_id=11989">Dr. Jie Cai</a> at <a href="https://engineering.purdue.edu/Herrick">Herrick Laboratories</a>. I spend most of my time at
-            the <a href="https://commalab.org/">CoMMA Lab</a>, advised by <a href="https://zkingston.com/">Zachary Kingston</a>, at Purdue University's Department of Computer Science.
-        </p>
 
         <div class="section">
             <h2>Experience</h2>
             <p>I'll be joining <a href="https://personainc.ai/">Persona AI</a> this summer as a mechanical engineering intern.
                 Shoutout <a href="https://zietek.dev/">Jacob Zietek</a>, <a href="https://www.aliua.me/">Ali Ahmad</a>, and <a href="https://abuynits.github.io/">Alexiy Buynitsky</a>. I was also an
-                 UTA for ECE 20001: Linear Circuit Analysis I.
+                UTA for ECE 20001: Linear Circuit Analysis I.
             </p>
         </div>
 
         <div class="section">
             <h2>Research</h2>
             <div class="research-item">
-                <img src="menagerie.png" alt="Research Image" class="research-image">
                 <div class="research-content">
                     <h3>Foam: A Tool for Spherical Approximation of Robot Geometry</h3>
+                    <p>Sai Coumar, Gilbert Chang, Nihar Kodkani, Zachary Kingston</p>
                     <p>
                         Foam is an open-source tool that automatically generates spherical approximations from URDF files, simplifying robot geometry modeling. It enhances collision checking and distance queries with minimal accuracy loss. Available as a Python library and containerized command-line app.
-                        </p>
+                    </p>
                     <div class="research-links">
-                        <a href="/2025irosfoam.pdf">paper</a>|
+                        <a href="/assets/2025irosfoam.pdf">paper</a>|
                         <a href="https://arxiv.org/abs/2503.13704">arXiv</a>|
                         <a href="https://github.com/CoMMALab/foam">code</a>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="section">
+            <h2>Links</h2>
+            <ul>
+                <li>Email: chang940 [at] purdue [dot] edu</li>
+                <li>Linkedin: <a href="https://www.linkedin.com/in/gilchang/" target="_blank">@gilchang</a></li>
+                <li>GitHub: <a href="https://github.com/vindou" target="_blank">@vindou</a></li>
+                <li>X: <a href="https://x.com/changd0u" target="_blank">@changd0u</a>
+            </ul>
+        </div>
+
+        <p class="with-space">
+            Website design inspired by <a href="https://zietek.dev">Jacob Zietek</a>, colors by <a href="https://uesc.io/">UESC</a>, fonts by <a href="https://www.anthropic.com/">Anthropic</a>.
+            <br>
+            <span class="italic">Edited April 27, 2025</span>
+        </p>
     </div>
 </body>
 </html>
