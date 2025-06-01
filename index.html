@@ -9,56 +9,144 @@
 </head>
 <body>
     <div class="container">
-        <p class="nav-links">
-            <a href="/">Home</a> / <a href="/research.html">Research</a> / <a href="/portfolio.html">Portfolio</a> / <a href="/assets/resume.pdf">Resume</a> / <a href="/notes.html">Notes</a>
-        </p>
         <h1>
             <a href="/" class="site-title">Gilbert Chang</a>
         </h1>
+        <b>email: </b> <img src="assets/images/email.png" class="email">
         <div class="section">
-            <h2>About Me</h2>
-            <p>I'm a third-year undergraduate student at Purdue University studying mechanical
-                engineering and computer science (concentration in computational science and
-                engineering).
-            </p>
+            <div class="about-container">
+                <div class="about-text">
+                    I'm a rising third-year undergraduate student at Purdue University studying <a href="https://engineering.purdue.edu/ME">mechanical
+                    engineering</a> and <a href="https://www.cs.purdue.edu/">computer science</a> with a concentration in <a href="https://www.cs.purdue.edu/undergraduate/curriculum/track-cse-fall2023.html">computational science and
+                    engineering</a>. <br><br>
 
-            <p>
-                Broadly, my interests lie in robotics,
-                classical control theory, and computational design.
-                I'm passionate about developing methods that facilitate
-                seamless human-robot collaboration.
-            </p>
+                    Broadly, I'm fascinated with developing mathematical models of natural phenomena
+                    and applying those models to robotics and design problems.<br><br>
 
-            <p>
-                Currently working at
-                the <a href="https://commalab.org/">CoMMA Lab</a>, advised by <a href="https://zkingston.com/">Zachary Kingston</a>, at Purdue University's Department of Computer Science.
-            </p>
+                    Currently working at
+                    the <a href="https://commalab.org/">CoMMA Lab</a>, advised by <a href="https://zkingston.com/">Zachary Kingston</a>, at Purdue University's Department of Computer Science.
+                </div>
+                <div class="about-sidebar">
+                    <img src="assets/images/headshot.jpg" alt="Gilbert Chang" class="headshot">
+                    <div class="quick-links">
+                        <a href="https://scholar.google.com/citations?user=n41f-QsAAAAJ&hl=en" class="icon-link">
+                            <img src="assets/icons/scholar.svg" alt="Google Scholar" class="icon">
+                        </a>
+                        <a href="https://www.linkedin.com/in/gilchang/" class="icon-link">
+                            <img src="assets/icons/linkedin.svg" alt="LinkedIn" class="icon">
+                        </a>
+                        <a href="https://github.com/vindou" class="icon-link">
+                            <img src="assets/icons/github.svg" alt="GitHub" class="icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h2>Experience</h2>
-            <p>I'll be joining <a href="https://personainc.ai/">Persona AI</a> this summer as a mechanical engineering intern.
-                Shoutout <a href="https://zietek.dev/">Jacob Zietek</a>, <a href="https://www.aliua.me/">Ali Ahmad</a>, and <a href="https://abuynits.github.io/">Alexiy Buynitsky</a> for their help. I was also an
-                UTA for ECE 20001: Linear Circuit Analysis I.
-            </p>
+            <div class="dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown(this)">
+                    <span class="dropdown-arrow">▶</span>
+                    <h2>Research</h2>
+                </div>
+                <div class="dropdown-content">
+                    <div class="research-content">
+                        <b>Foam: A Tool for Spherical Approximation of Robot Geometry</b><br/>
+                        <a href="https://saiccoumar.github.io/">Sai Coumar</a>, <i>Gilbert Chang</i>, <a href="https://niharkod.github.io/">Nihar Kodkani</a>, <a href="https://zkingston.com/">Zachary Kingston</a>
+                        <div class="research-links">
+                            <a href="/assets/2025irosfoam.pdf">paper</a>|
+                            <a href="https://arxiv.org/abs/2503.13704">arXiv</a>|
+                            <a href="https://github.com/CoMMALab/foam">code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h2>Links</h2>
-            <ul>
-                <li>Email: chang940「at」purdue「dot」edu</li>
-                <li>Scholar: <a href="https://scholar.google.com/citations?user=n41f-QsAAAAJ&hl=en">Gilbert Chang</a></li>
-                <li>Linkedin: <a href="https://www.linkedin.com/in/gilchang/" target="_blank">@gilchang</a></li>
-                <li>GitHub: <a href="https://github.com/vindou" target="_blank">@vindou</a></li>
-                <li>X: <a href="https://x.com/changd0u" target="_blank">@changd0u</a>
-            </ul>
+            <div class="dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown(this)">
+                    <span class="dropdown-arrow">▶</span>
+                    <h2>Experience</h2>
+                </div>
+                <div class="dropdown-content">
+                    <div class="experience-item">
+                        <b>Persona AI</b>
+                        <span style="float:right;">
+                            Houston, TX
+                        </span>
+                        <br />
+                        Mechanical Engineer Intern
+                        <span style="float:right;">
+                        May 2025 — Present
+                        </span>
+                    </div>
+                    <div class="experience-item">
+                        <b>Computational Motion, Manipulation, and Autonomy Lab</b>
+                        <span style="float:right;">
+                            Purdue University
+                        </span>
+                        <br />
+                        Undergraduate Research Assistant
+                        <span style="float:right;">
+                        August 2024 — Present
+                        </span>
+                    </div>
+                    <div class="experience-item">
+                        <b>Cai Group</b>
+                        <span style="float:right;">
+                            Herrick Laboratories
+                        </span>
+                        <br />
+                        Undergraduate Research Assistant
+                        <span style="float:right;">
+                        January 2025 — May 2025
+                        </span>
+                    </div>
+                    <div class="experience-item">
+                        <b>Robolabs</b>
+                        <span style="float:right;">
+                            Dublin, CA
+                        </span>
+                        <br />
+                        Robot Development Intern
+                        <span style="float:right;">
+                        May 2023 — August 2023
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="dropdown">
+                <div class="dropdown-header" onclick="toggleDropdown(this)">
+                    <span class="dropdown-arrow">▶</span>
+                    <h2>Education</h2>
+                </div>
+                <div class="dropdown-content">
+                    <div class="experience-item">
+                        <b>Purdue University</b>
+                        <span style="float:right;">
+                            West Lafayette, IN
+                        </span>
+                        <br />
+                        BS Mechanical Engineering; BS Computer Science
+                        <span style="float:right;">
+                        August 2023 — May 2026
+                        </span>
+                        <br />
+                        <i>Concentration in Computational Science and Engineering</i>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <p class="with-space">
-            Website design inspired by <a href="https://zietek.dev">Jacob Zietek</a>, colors by the <a href="https://uesc.io/">UESC</a>, fonts by <a href="https://www.anthropic.com/">Anthropic</a>.
-            <br>
-            <span class="italic">Edited May 13th, 2025</span>
+            <span class="italic">Edited June 1st, 2025<br>© 2020–2025 Gilbert Chang.</span>
+
         </p>
     </div>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
