@@ -21,23 +21,9 @@
 
 @font-face {
     font-family: 'Neue Haas Grotesk';
-    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-66MdIt.otf') format('opentype');
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Neue Haas Grotesk';
     src: url('../neue-haas-grotesk/NHaasGroteskDSPro-75Bd.otf') format('opentype');
     font-weight: 600;
     font-style: normal;
-}
-
-@font-face {
-    font-family: 'Neue Haas Grotesk';
-    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-76BdIt.otf') format('opentype');
-    font-weight: 600;
-    font-style: italic;
 }
 
 html {
@@ -50,19 +36,23 @@ body {
     padding: 2rem;
     line-height: 1.5;
     font-family: "Neue Haas Grotesk", serif;
-    letter-spacing: -0.0px;
+    letter-spacing: 0.5px;
     font-weight: 400;
     font-size: 1.125rem;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
 }
 
-/* Container */
+body.fade-in {
+    opacity: 1;
+}
+
 .container {
     max-width: 850px;
     margin: 0 auto;
     padding: 0 10px;
 }
 
-/* Typography */
 h1 {
     font-weight: 500;
     font-size: 3rem;
@@ -104,31 +94,26 @@ h3 {
     font-style: italic;
 }
 
-/* Links */
 a {
     color: #FF5F43;
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
-/* List styling */
 ul {
     margin-top: 0;
     margin-left: -1.5rem;
 }
 
-/* Reduce bottom margin for dropdown content lists to match other sections */
 .dropdown-content ul {
     margin-bottom: 0;
 }
 
-/* Content sections */
 .section {
     margin: 0.875rem 0;
     transition: margin 0.5s cubic-bezier(0.9, 0, 0.1, 1);
 }
 
-/* Research item styling */
 .research-item {
     display: flex;
     gap: 20px;
@@ -160,7 +145,6 @@ ul {
     margin-right: 10px;
 }
 
-/* Footer */
 footer {
     margin-top: 4rem;
     padding-top: 2rem;
@@ -170,13 +154,11 @@ footer {
     align-items: center;
 }
 
-/* Line length control */
 .content p {
     font-size: 0.95rem;
     line-height: 1.6;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
     body {
         padding: 1rem;
@@ -203,7 +185,6 @@ footer {
     width: auto;
 }
 
-/* Navigation */
 .nav-links {
     margin-bottom: 0;
     line-height: 1;
@@ -239,13 +220,11 @@ footer {
     margin-left: 5rem;
 }
 
-/* Experience section styling */
 .experience-item {
     margin-left: 1.0rem;
     margin-bottom: 0.75rem;
 }
 
-/* Dropdown styling */
 .dropdown {
     position: relative;
     margin-bottom: 1rem;
