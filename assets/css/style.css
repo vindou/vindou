@@ -61,7 +61,7 @@ body {
 
 /* Container */
 .container {
-    max-width: 875px;
+    max-width: 650px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -111,7 +111,7 @@ h3 {
 
 /* Links */
 a {
-    color: #0C0C0C;
+    color: #FF5F43;
     text-decoration: underline;
     text-underline-offset: 3px;
 }
