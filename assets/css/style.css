@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
-
-/* Font declarations */
 @font-face {
     font-family: 'Neue Haas Grotesk';
     src: url('../neue-haas-grotesk/NHaasGroteskDSPro-55Rg.otf') format('opentype');
@@ -43,7 +40,6 @@
     font-style: italic;
 }
 
-/* Base styles */
 html {
     overflow-y: scroll;
 }
