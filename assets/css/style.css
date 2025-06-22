@@ -57,7 +57,7 @@ body {
 
 /* Container */
 .container {
-    max-width: 650px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -79,7 +79,7 @@ h2 {
 }
 
 b {
-    font-weight: 500;
+    font-weight: 450;
 }
 
 h3 {
@@ -104,12 +104,22 @@ h3 {
     font-style: italic;
 }
 
-
 /* Links */
 a {
     color: #FF5F43;
     text-decoration: underline;
     text-underline-offset: 3px;
+}
+
+/* List styling */
+ul {
+    margin-top: 0;
+    margin-left: -1.5rem;
+}
+
+/* Reduce bottom margin for dropdown content lists to match other sections */
+.dropdown-content ul {
+    margin-bottom: 0;
 }
 
 /* Content sections */
@@ -122,7 +132,7 @@ a {
 .research-item {
     display: flex;
     gap: 20px;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
 }
 
 .research-image {
@@ -135,6 +145,7 @@ a {
 .research-content {
     margin-left: 1.0rem;
     flex: 1;
+    margin-bottom: 0.8rem;
 }
 
 .research-content h3 {
@@ -231,7 +242,7 @@ footer {
 /* Experience section styling */
 .experience-item {
     margin-left: 1.0rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 }
 
 /* Dropdown styling */
