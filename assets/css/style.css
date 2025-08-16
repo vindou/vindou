@@ -38,7 +38,7 @@ body {
     font-family: "Neue Haas Grotesk", serif;
     letter-spacing: 0.5px;
     font-weight: 300;
-    font-size: 1.125rem;
+    font-size: 0.8rem;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
 }
@@ -47,7 +47,7 @@ body.fade-in { opacity: 1; }
 
 /* Layout */
 .container {
-    max-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -55,13 +55,13 @@ body.fade-in { opacity: 1; }
 /* Typography */
 h1 {
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.25rem;
 }
 
 h2 {
     font-weight: 500;
-    font-size: 1.625rem;
+    font-size: 1.25rem;
     margin: 0;
 }
 
@@ -74,9 +74,10 @@ h3 {
 b { font-weight: 450; }
 
 a {
-    color: #FF5F43;
+    color: #1b39da;
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3.5px;
 }
 
 ul {
@@ -91,6 +92,7 @@ ul {
 }
 
 .contact-links {
+    margin-top: 0.25rem;
     margin-bottom: 0;
     line-height: 1;
 }
@@ -114,7 +116,7 @@ ul {
 
 .about-text { flex: 1; }
 
-.back-button { margin-bottom: -2.0rem; }
+.back-button { margin-bottom: -1.5rem; }
 
 .with-space {
     font-size: 0.5rem;
