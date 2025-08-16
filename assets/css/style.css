@@ -1,3 +1,18 @@
+/* CSS Variables for Light/Dark Mode */
+:root {
+    --bg-color: #fafafa;
+    --text-color: #0C0C0C;
+    --link-color: #1b39da;
+    --section-bg: transparent;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #fafafa;
+    --link-color: #fafafa;
+    --section-bg: rgba(255, 255, 255, 0.05);
+}
+
 /* Font definitions */
 @font-face {
     font-family: 'Neue Haas Grotesk';
@@ -31,8 +46,8 @@
 html { overflow-y: scroll; }
 
 body {
-    background-color: #fafafa;
-    color: #0C0C0C;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding: 2rem;
     line-height: 1.5;
     font-family: "Neue Haas Grotesk", serif;
@@ -40,7 +55,7 @@ body {
     font-weight: 300;
     font-size: 0.85rem;
     opacity: 0;
-    transition: opacity 1.2s ease-in-out;
+    transition: opacity 1.2s ease-in-out, background-color 0.3s ease, color 0.3s ease;
 }
 
 body.fade-in { opacity: 1; }
@@ -74,10 +89,11 @@ h3 {
 b { font-weight: 450; }
 
 a {
-    color: #1b39da;
+    color: var(--link-color);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3.5px;
+    transition: color 0.3s ease;
 }
 
 ul {
@@ -124,6 +140,49 @@ ul {
 }
 
 .italic { font-style: italic; }
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: var(--bg-color);
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "Neue Haas Grotesk", serif;
+    font-size: 1.0rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+    transform: scale(1.1);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .section {
+    /* Removed background, border-radius, padding, and margin changes */
+}
+
+[data-theme="dark"] .experience-item,
+[data-theme="dark"] .research-content {
+    /* Removed background, padding, border-radius, and border changes */
+}
 
 /* Responsive design */
 @media (max-width: 768px) {
