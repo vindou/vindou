@@ -70,13 +70,13 @@ body.fade-in { opacity: 1; }
 /* Typography */
 h1 {
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 0.25rem;
 }
 
 h2 {
     font-weight: 500;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -98,7 +98,7 @@ a {
 
 ul {
     margin-top: 0;
-    margin-left: -1.5rem;
+    margin-left: 1.5rem;
 }
 
 /* Components */
@@ -184,6 +184,94 @@ ul {
     /* Removed background, padding, border-radius, and border changes */
 }
 
+/* Semantic elements */
+main {
+    display: block;
+}
+
+header {
+    margin-bottom: 1.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+article {
+    margin-bottom: 1rem;
+}
+
+footer {
+    margin-top: 2rem;
+    border-top: 1px solid var(--text-color);
+    padding-top: 1rem;
+}
+
+address {
+    font-style: normal;
+    margin-bottom: 0.5rem;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Experience item improvements */
+.experience-item h3 {
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.experience-item p {
+    margin: 0.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.location,
+.date {
+    font-weight: 400;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* Research content improvements */
+.research-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.research-content p {
+    margin: 0.25rem 0;
+}
+
+/* List improvements */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 0rem;
+    padding-left: 0;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .about-container {
@@ -195,6 +283,17 @@ ul {
         order: 2;
         width: 100%;
         margin-top: 0;
+    }
+    
+    .experience-item h3,
+    .experience-item p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .location,
+    .date {
+        margin-top: 0.25rem;
     }
 }
 
