@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 function updateDate() {
     const dateElements = document.querySelectorAll('.italic');
     const currentDate = new Date();
@@ -15,6 +16,8 @@ function updateDate() {
     });
 }
 
+=======
+>>>>>>> Stashed changes
 function fadeInPage() {
     setTimeout(() => {
         document.body.classList.add('fade-in');

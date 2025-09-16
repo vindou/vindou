@@ -1,31 +1,136 @@
+<<<<<<< Updated upstream
 /* Font definitions */
+=======
+/* Neue Haas Grotesk Font Loading */
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-15UltTh.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-16UltThIt.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-25Th.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-26ThIt.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-35XLt.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-36XLtIt.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-45Lt.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-46LtIt.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+>>>>>>> Stashed changes
 @font-face {
     font-family: 'Neue Haas Grotesk';
     src: url('../neue-haas-grotesk/NHaasGroteskDSPro-55Rg.otf') format('opentype');
-    font-weight: 400;
+    font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Neue Haas Grotesk';
     src: url('../neue-haas-grotesk/NHaasGroteskDSPro-56It.otf') format('opentype');
-    font-weight: 400;
+    font-weight: 500;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Neue Haas Grotesk';
     src: url('../neue-haas-grotesk/NHaasGroteskDSPro-65Md.otf') format('opentype');
-    font-weight: 500;
+    font-weight: 600;
     font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-66MdIt.otf') format('opentype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Neue Haas Grotesk';
     src: url('../neue-haas-grotesk/NHaasGroteskDSPro-75Bd.otf') format('opentype');
-    font-weight: 600;
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-76BdIt.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-95Blk.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('../neue-haas-grotesk/NHaasGroteskDSPro-96BlkIt.otf') format('opentype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
 
 /* Base styles */
 html { overflow-y: scroll; }
@@ -35,19 +140,29 @@ body {
     color: #0C0C0C;
     padding: 2rem;
     line-height: 1.5;
-    font-family: "Neue Haas Grotesk", serif;
+    font-family: "Berkeley Mono Trial", sans-serif;
     letter-spacing: 0.5px;
     font-weight: 300;
+<<<<<<< Updated upstream
     font-size: 1.125rem;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
+=======
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+>>>>>>> Stashed changes
 }
 
 body.fade-in { opacity: 1; }
 
 /* Layout */
 .container {
+<<<<<<< Updated upstream
     max-width: 900px;
+=======
+    max-width: 700px;
+>>>>>>> Stashed changes
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -66,17 +181,25 @@ h2 {
 }
 
 h3 {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1.25rem;
     margin: 0.25rem 0;
 }
 
-b { font-weight: 450; }
+b { font-weight: 400; }
 
 a {
+<<<<<<< Updated upstream
     color: #FF5F43;
     text-decoration: underline;
     text-underline-offset: 3px;
+=======
+    color: #1b39da;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.3s ease;
+>>>>>>> Stashed changes
 }
 
 ul {
@@ -91,14 +214,40 @@ ul {
 }
 
 .contact-links {
+<<<<<<< Updated upstream
     margin-bottom: 0;
+=======
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+>>>>>>> Stashed changes
     line-height: 1;
 }
 
 .research-content {
-    margin-left: 1.0rem;
+    display: flex;
+    gap: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 0.75rem;
+    align-items: flex-start;
+}
+
+.research-image {
+    width: 90px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 1px solid #0C0C0C;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #0C0C0C;
+    opacity: 0.6;
+}
+
+.research-text {
     flex: 1;
-    margin-bottom: 0.8rem;
 }
 
 .experience-item {
@@ -123,22 +272,128 @@ ul {
 
 .italic { font-style: italic; }
 
+<<<<<<< Updated upstream
+=======
+
+/* Semantic elements */
+main {
+    display: block;
+}
+
+header {
+    margin-bottom: 1.5rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+article {
+    margin-bottom: 1rem;
+}
+
+footer {
+    margin-top: 2rem;
+    border-top: 1px solid #0C0C0C;
+    padding-top: 1rem;
+}
+
+address {
+    font-style: normal;
+    margin-bottom: 0.5rem;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Experience item improvements */
+.experience-item h3 {
+    margin-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.experience-item p {
+    margin: 0.25rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.location,
+.date {
+    font-weight: 400;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* Research content improvements */
+.research-content h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.research-content p {
+    margin: 0.25rem 0;
+}
+
+/* List improvements */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 0.25rem;
+    padding-left: 0;
+}
+
+>>>>>>> Stashed changes
 /* Responsive design */
 @media (max-width: 768px) {
     .about-container {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .about-text {
         order: 2;
         width: 100%;
         margin-top: 0;
     }
+<<<<<<< Updated upstream
+=======
+
+    .experience-item h3,
+    .experience-item p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .location,
+    .date {
+        margin-top: 0.25rem;
+    }
+>>>>>>> Stashed changes
 }
 
 @media (max-width: 600px) {
     body { padding: 1rem; }
-    
+
     h1 { font-size: 1.75rem; }
 }
