@@ -106,7 +106,8 @@ a:hover {
 
 .paper {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
+  /* Thumbnail stays beside the text and shrinks with the page instead of stacking. */
+  grid-template-columns: min(180px, 30%) minmax(0, 1fr);
   gap: 18px;
   padding: 16px 0;
   border-bottom: 1px solid var(--border);
@@ -211,7 +212,6 @@ a:hover {
   }
 
   .paper {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
+    gap: 12px;
   }
 }
