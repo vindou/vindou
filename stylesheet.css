@@ -137,6 +137,11 @@ a:hover {
   object-fit: cover;
 }
 
+/* For media on a white background that should show in full rather than be cropped. */
+.thumb .contain {
+  object-fit: contain;
+}
+
 .thumb-base,
 .thumb-hover {
   transition: opacity 0.25s ease;
