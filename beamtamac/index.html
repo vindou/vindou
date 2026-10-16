@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beamtamac</title>
+<meta name="description" content="A Zetamac-style speed drill: find the points of maximum and zero stress on standard beams.">
+<link rel="canonical" href="https://gilcha.com/beamtamac/">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<style>
+/* Layout: Zetamac-plain. One narrow centred column, black on white, no ornament. Single theme by choice. */
+:root {
+  --bg: #fff;
+  --fg: #000;
+  --mid: #777;
+  --faint: #bbb;
+  --font: Arial, Helvetica, sans-serif;
+  color-scheme: light;
+}
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.45; }
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 60px;
+}
+h1 { font-size: 24px; font-weight: bold; margin: 0 0 12px; }
+p { margin: 0 0 12px; max-width: 62ch; }
+a, .lnk { color: var(--fg); text-decoration: underline; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
+fieldset { border: 0; margin: 20px 0 0; padding: 0; }
+legend { font-weight: bold; padding: 0; margin-bottom: 6px; }
+label { display: block; padding: 2px 0; cursor: pointer; }
+label input { margin: 0 6px 0 0; vertical-align: -1px; accent-color: #000; }
+select, button.start { font: inherit; }
+.durrow { margin-top: 20px; }
+button.start { margin-top: 20px; padding: 4px 18px; }
+.err { margin-top: 10px; }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+.bar { display: flex; justify-content: space-between; font-size: 15px; }
+.problem { margin-top: 40px; text-align: center; }
+.q { font-size: 26px; margin: 8px 0 4px; }
+.sub { color: var(--mid); font-size: 13px; min-height: 1.4em; }
+.fig svg { display: block; width: 100%; height: auto; max-width: 100%; }
+
+.score { font-size: 28px; margin: 40px 0 8px; }
+.again { display: flex; gap: 18px; }
+.miss { margin-top: 36px; }
+.miss h2 { font-size: 15px; margin: 0 0 4px; }
+.mi { border-top: 1px solid var(--faint); padding: 14px 0 6px; }
+.mi .t { font-weight: bold; }
+.mi .e { color: var(--fg); font-size: 14px; }
+.mi svg { display: block; width: 100%; max-width: 480px; height: auto; margin-top: 4px; }
+
+/* SVG */
+.b { fill: var(--bg); stroke: var(--fg); stroke-width: 1.6; }
+.na { stroke: var(--faint); stroke-width: 1; stroke-dasharray: 5 4; }
+.s { fill: none; stroke: var(--fg); stroke-width: 1.4; stroke-linejoin: round; }
+.w { stroke: var(--fg); stroke-width: 2.5; }
+.h { stroke: var(--fg); stroke-width: 0.8; }
+.ld { stroke: var(--fg); stroke-width: 1.3; }
+.ldh { fill: var(--fg); }
+.pl { stroke: var(--fg); stroke-width: 2.2; }
+.plh { fill: var(--fg); }
+.lt { font: italic 16px var(--font); fill: var(--fg); }
+.pt { cursor: pointer; }
+.pt .hit { fill: transparent; }
+.pt .d { fill: var(--fg); }
+.pt text { font: bold 14px var(--font); fill: var(--fg); }
+.pt.bad .d { fill: var(--bg); stroke: var(--mid); stroke-width: 1.2; }
+.pt.bad text { fill: var(--faint); }
+.pt:hover .d { r: 6; }
+.ring { fill: none; stroke: var(--fg); stroke-width: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <!-- SETUP -->
+  <section id="setup">
+    <h1>Beamtamac</h1>
+    <p>A fast-paced drill on where beams are most and least stressed, in the style of the Zetamac arithmetic game. Each problem shows a beam with numbered points. Press the number of the right point, or click it. A wrong answer costs you one second.</p>
+    <p>Bending stress is taken as σ = −My/I and shear stress as τ = VQ/Ib on a solid rectangular section. Self-weight is ignored.</p>
+
+    <fieldset>
+      <legend>Questions</legend>
+      <div id="qs"></div>
+    </fieldset>
+    <fieldset>
+      <legend>Beams</legend>
+      <div id="cs"></div>
+    </fieldset>
+    <div class="durrow">
+      <label for="dur" style="display:inline">Duration: </label>
+      <select id="dur">
+        <option value="30">30 seconds</option>
+        <option value="60">60 seconds</option>
+        <option value="120" selected>120 seconds</option>
+        <option value="300">300 seconds</option>
+      </select>
+    </div>
+    <button class="start" id="startBtn">Start</button>
+    <p class="err" id="err" hidden>Pick at least one question and one beam.</p>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" hidden>
+    <div class="bar"><span>Seconds left: <span id="time">120</span></span><span>Score: <span id="score">0</span></span></div>
+    <div class="problem">
+      <div class="fig" id="fig"></div>
+      <div class="q" id="q"></div>
+      <div class="sub" id="sub"></div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" hidden>
+    <div class="score">Score: <span id="rScore">0</span></div>
+    <div class="again"><button class="lnk" id="againBtn">Try again</button><button class="lnk" id="setupBtn">Change settings</button></div>
+    <div class="miss" id="miss"></div>
+  </section>
+</div>
+
+<script>
+// GEN-START
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const EPS = 1e-9;
+
+// Beam length normalised to 1, x from the left end. M > 0 is sagging. V sign is irrelevant (only |V| is used).
+// disc: stations where V jumps (point loads, interior supports), so shear there is undefined.
+const CASES = {
+  ssP: { name: 'Simply supported, point load', make() {
+    const a = pick([0.25, 1 / 3, 2 / 3, 0.75]), RA = 1 - a;
+    return { kind: 'ss', loads: [{ t: 'P', x: a }], M: x => x <= a ? RA * x : RA * x - (x - a), V: x => x < a ? RA : RA - 1, disc: [a], st: [0, 0.25, 0.5, 0.75, 1, a] };
+  } },
+  ssW: { name: 'Simply supported, UDL', make() {
+    return { kind: 'ss', loads: [{ t: 'w' }], M: x => x * (1 - x) / 2, V: x => 0.5 - x, disc: [], st: [0, 0.25, 0.5, 0.75, 1] };
+  } },
+  ss4: { name: 'Simply supported, two equal loads', make() {
+    return { kind: 'ss', loads: [{ t: 'P', x: 1 / 3 }, { t: 'P', x: 2 / 3 }], M: x => x <= 1 / 3 ? x : x <= 2 / 3 ? 1 / 3 : 1 - x, V: x => x < 1 / 3 ? 1 : x < 2 / 3 ? 0 : -1, disc: [1 / 3, 2 / 3], st: [0, 1 / 6, 1 / 3, 0.5, 2 / 3, 5 / 6, 1] };
+  } },
+  cP: { name: 'Cantilever, tip load', make() {
+    return { kind: 'cant', loads: [{ t: 'P', x: 1 }], M: x => -(1 - x), V: () => 1, disc: [], st: [0, 0.25, 0.5, 0.75, 1] };
+  } },
+  cW: { name: 'Cantilever, UDL', make() {
+    return { kind: 'cant', loads: [{ t: 'w' }], M: x => -((1 - x) ** 2) / 2, V: x => 1 - x, disc: [], st: [0, 0.25, 0.5, 0.75, 1] };
+  } },
+  ffW: { name: 'Fixed–fixed, UDL', make() {
+    return { kind: 'ff', loads: [{ t: 'w' }], M: x => (6 * x - 6 * x * x - 1) / 12, V: x => 0.5 - x, disc: [], st: [0, 0.25, 0.5, 0.75, 1] };
+  } },
+  ffP: { name: 'Fixed–fixed, midspan load', make() {
+    return { kind: 'ff', loads: [{ t: 'P', x: 0.5 }], M: x => x <= 0.5 ? -1 / 8 + x / 2 : -1 / 8 + (1 - x) / 2, V: x => x < 0.5 ? 0.5 : -0.5, disc: [0.5], st: [0, 0.25, 0.5, 0.75, 1] };
+  } },
+  prW: { name: 'Propped cantilever, UDL', make() {
+    return { kind: 'prop', loads: [{ t: 'w' }], M: x => 3 * (1 - x) / 8 - ((1 - x) ** 2) / 2, V: x => (1 - x) - 3 / 8, disc: [], st: [0, 0.25, 0.5, 0.625, 0.75, 1] };
+  } },
+  ovP: { name: 'Overhanging beam, tip load', make() {
+    return { kind: 'over', loads: [{ t: 'P', x: 1 }], M: x => x <= 0.75 ? -x / 3 : -(1 - x), V: x => x < 0.75 ? -1 / 3 : 1, disc: [0.75], st: [0, 0.25, 0.5, 0.75, 0.875, 1] };
+  } },
+};
+
+const QS = {
+  tension:     { name: 'Maximum tensile stress', kind: 'max', f: p => -p.M * p.y },
+  compression: { name: 'Maximum compressive stress', kind: 'max', f: p => p.M * p.y },
+  shear:       { name: 'Maximum shear stress', kind: 'max', usesV: true, f: p => Math.abs(p.V) * (1 - p.y * p.y) },
+  zeroN:       { name: 'Zero bending stress', kind: 'zero', f: p => Math.abs(p.M * p.y) },
+  zero:        { name: 'Zero stress (no bending or shear stress)', kind: 'zero', usesV: true, f: p => Math.abs(p.M * p.y) + Math.abs(p.V) * (1 - p.y * p.y) },
+};
+
+const N_PTS = 5;
+function generate(qKeys, cKeys, prevSig) {
+  for (let tries = 0; tries < 5000; tries++) {
+    const ck = pick(cKeys), qk = pick(qKeys), b = CASES[ck].make(), Q = QS[qk];
+    const near = (a, c) => Math.abs(a - c) < 1e-9;
+    let st = [...new Set(b.st.map(x => +x.toFixed(6)))];
+    if (Q.usesV) st = st.filter(x => !b.disc.some(d => near(d, x)));
+    const cand = [];
+    for (const x of st) for (const y of [1, 0, -1]) cand.push({ x, y });
+    if (cand.length < N_PTS) continue;
+    for (let i = cand.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [cand[i], cand[j]] = [cand[j], cand[i]]; }
+    const pts = cand.slice(0, N_PTS).sort((a, c) => a.x - c.x || c.y - a.y);
+    if (new Set(pts.map(p => p.x)).size < 2 || new Set(pts.map(p => p.y)).size < 2) continue;
+    for (const p of pts) { p.M = b.M(p.x); p.V = b.V(p.x); p.v = Q.f(p); }
+    const vals = pts.map(p => p.v);
+    let ans;
+    if (Q.kind === 'max') {
+      const best = Math.max(...vals);
+      if (best < EPS) continue;
+      ans = pts.map((p, i) => i).filter(i => best - vals[i] < EPS);
+      const rest = vals.filter((v, i) => !ans.includes(i));
+      if (rest.some(v => v > 0.8 * best)) continue;
+    } else {
+      const top = Math.max(...vals);
+      if (top < EPS) continue;
+      ans = pts.map((p, i) => i).filter(i => vals[i] < EPS);
+      if (vals.some(v => v >= EPS && v < 0.1 * top)) continue;
+    }
+    if (!ans.length || ans.length > 2) continue;
+    const sig = ck + qk + pts.map(p => p.x + ':' + p.y).join();
+    if (sig === prevSig) continue;
+    return { ck, qk, b, pts, ans, sig };
+  }
+  return null;
+}
+
+const FR = { 0: '0', 0.125: 'L/8', 0.166667: 'L/6', 0.25: 'L/4', 0.333333: 'L/3', 0.5: 'L/2', 0.625: '5L/8', 0.666667: '2L/3', 0.75: '3L/4', 0.833333: '5L/6', 0.875: '7L/8', 1: 'L' };
+const at = x => 'x = ' + (FR[+x.toFixed(6)] || x.toFixed(2) + 'L');
+const fiber = y => y > 0 ? 'top fibre' : y < 0 ? 'bottom fibre' : 'neutral axis';
+function explain(pr) {
+  return [...new Set(pr.ans.map(i => explainOne(pr, pr.pts[i])))].join(' ');
+}
+function explainOne(pr, p) {
+  const q = pr.qk;
+  if (q === 'tension' || q === 'compression') {
+    const sag = p.M > 0;
+    return `Largest ${sag ? 'sagging' : 'hogging'} moment among the marked sections is at ${at(p.x)}. ${sag ? 'Sagging' : 'Hogging'} puts the ${q === 'tension' ? (sag ? 'bottom' : 'top') : (sag ? 'top' : 'bottom')} fibre in ${q}.`;
+  }
+  if (q === 'shear') return `|V| is largest among the marked sections at ${at(p.x)}, and on a rectangle τ peaks at the neutral axis (τ = 1.5V/A).`;
+  if (q === 'zeroN') return p.y === 0 ? 'Bending stress is zero on the neutral axis at every section.' : `M = 0 at ${at(p.x)}, so there is no bending stress anywhere through that depth.`;
+  const whyN = p.y === 0 ? 'on the neutral axis' : `M = 0 at ${at(p.x)}`;
+  const whyV = p.y !== 0 ? `it is an outer fibre (Q = 0)` : `V = 0 at ${at(p.x)}`;
+  return `Zero bending stress because ${whyN}, and zero shear stress because ${whyV}.`;
+}
+// GEN-END
+
+/* ---------- Drawing ---------- */
+const x0 = 60, x1 = 540, yc = 104, hh = 28;
+const X = x => x0 + x * (x1 - x0);
+const Y = y => yc - y * hh;
+const L = (a, b, c, d, cls) => `<line class="${cls}" x1="${a}" y1="${b}" x2="${c}" y2="${d}"/>`;
+const arrow = (x, y1, y2, cls, hd) => L(x, y1, x, y2 - hd + 1, cls) + `<path class="${cls}h" d="M${x} ${y2}L${x - hd / 2} ${y2 - hd}L${x + hd / 2} ${y2 - hd}Z"/>`;
+function ground(x, y) {
+  let s = L(x - 22, y, x + 22, y, 's');
+  for (let i = -18; i <= 22; i += 8) s += L(x + i, y, x + i - 6, y + 7, 'h');
+  return s;
+}
+const pin = x => { const t = yc + hh; return `<path class="s" d="M${x} ${t}L${x - 13} ${t + 22}L${x + 13} ${t + 22}Z"/>` + ground(x, t + 22); };
+const roller = x => { const t = yc + hh; return `<path class="s" d="M${x} ${t}L${x - 13} ${t + 17}L${x + 13} ${t + 17}Z"/><circle class="s" cx="${x - 7}" cy="${t + 21}" r="4"/><circle class="s" cx="${x + 7}" cy="${t + 21}" r="4"/>` + ground(x, t + 25); };
+function wall(x, dir) {
+  let s = L(x, yc - 52, x, yc + 52, 'w');
+  for (let j = yc - 52; j < yc + 52; j += 9) s += L(x, j, x + dir * 9, j + 9, 'h');
+  return s;
+}
+
+function svg(pr, opts = {}) {
+  const b = pr.b;
+  let s = '';
+  if (b.kind === 'ss') s += pin(X(0)) + roller(X(1));
+  if (b.kind === 'cant') s += wall(X(0), -1);
+  if (b.kind === 'ff') s += wall(X(0), -1) + wall(X(1), 1);
+  if (b.kind === 'prop') s += wall(X(0), -1) + roller(X(1));
+  if (b.kind === 'over') s += pin(X(0)) + roller(X(0.75));
+  s += `<rect class="b" x="${x0}" y="${yc - hh}" width="${x1 - x0}" height="${2 * hh}"/>` + L(x0, yc, x1, yc, 'na');
+  for (const l of b.loads) {
+    if (l.t === 'w') {
+      const top = yc - hh - 36;
+      s += L(x0, top, x1, top, 'ld');
+      for (let i = 0; i <= 12; i++) s += arrow(x0 + i * (x1 - x0) / 12, top, yc - hh - 1, 'ld', 6);
+      s += `<text class="lt" x="${x0}" y="${top - 8}">w</text>`;
+    } else {
+      const top = yc - hh - 62;
+      s += arrow(X(l.x), top, yc - hh - 1, 'pl', 10);
+      s += `<text class="lt" x="${X(l.x) + 8}" y="${top + 12}">P</text>`;
+    }
+  }
+  pr.pts.forEach((p, i) => {
+    const cx = X(p.x), cy = Y(p.y), right = p.x < 0.9;
+    const tx = right ? cx + 8 : cx - 8, ty = p.y > 0 ? cy + 15 : p.y < 0 ? cy - 5 : cy + 5;
+    const ring = opts.ring && pr.ans.includes(i) ? `<circle class="ring" cx="${cx}" cy="${cy}" r="10"/>` : '';
+    s += `<g class="pt" data-i="${i}">${ring}<circle class="hit" cx="${cx}" cy="${cy}" r="15"/><circle class="d" cx="${cx}" cy="${cy}" r="4.5"/><text x="${tx}" y="${ty}" text-anchor="${right ? 'start' : 'end'}">${i + 1}</text></g>`;
+  });
+  return `<svg viewBox="0 0 600 176" role="img" aria-label="${CASES[pr.ck].name} with ${pr.pts.length} numbered points">${s}</svg>`;
+}
+
+/* ---------- Game ---------- */
+const $ = id => document.getElementById(id);
+$('qs').innerHTML = Object.entries(QS).map(([k, q]) => `<label><input type="checkbox" name="q" id="q-${k}" value="${k}" checked>${q.name}</label>`).join('');
+$('cs').innerHTML = Object.entries(CASES).map(([k, c]) => `<label><input type="checkbox" name="c" id="c-${k}" value="${k}" checked>${c.name}</label>`).join('');
+
+let G = null;
+const show = w => ['setup', 'game', 'results'].forEach(id => $(id).hidden = id !== w);
+const checked = n => [...document.querySelectorAll(`input[name=${n}]:checked`)].map(i => i.value);
+
+function start() {
+  const qs = checked('q'), cs = checked('c');
+  if (!qs.length || !cs.length) { $('err').hidden = false; return; }
+  $('err').hidden = true;
+  const dur = +$('dur').value;
+  G = { qs, cs, dur, score: 0, miss: [], end: performance.now() + dur * 1000, cur: null, lock: 0, wrong: false, timer: 0 };
+  $('score').textContent = '0';
+  $('time').textContent = dur;
+  show('game');
+  next();
+  G.timer = setInterval(tick, 100);
+}
+function next() {
+  G.cur = generate(G.qs, G.cs, G.cur && G.cur.sig);
+  G.wrong = false;
+  $('fig').innerHTML = svg(G.cur);
+  $('q').textContent = QS[G.cur.qk].name + '?';
+  $('sub').textContent = `${CASES[G.cur.ck].name}. Press 1–${G.cur.pts.length} or click a point.`;
+}
+function tick() {
+  const now = performance.now(), left = Math.max(0, Math.ceil((G.end - now) / 1000));
+  $('time').textContent = left;
+  if (G.lock && now >= G.lock) { G.lock = 0; $('sub').textContent = `${CASES[G.cur.ck].name}. Press 1–${G.cur.pts.length} or click a point.`; }
+  if (left <= 0) finish();
+}
+function answer(i) {
+  if (!G || !G.timer || G.lock || i < 0 || i >= G.cur.pts.length) return;
+  const g = $('fig').querySelector(`.pt[data-i="${i}"]`);
+  if (g && g.classList.contains('bad')) return;
+  if (G.cur.ans.includes(i)) {
+    G.score++;
+    $('score').textContent = G.score;
+    next();
+  } else {
+    if (!G.wrong) { G.wrong = true; G.miss.push(G.cur); }
+    if (g) g.classList.add('bad');
+    G.lock = performance.now() + 1000;
+    $('sub').textContent = 'Wrong. One-second penalty.';
+  }
+}
+$('fig').addEventListener('click', e => {
+  const g = e.target.closest('.pt');
+  if (g) answer(+g.dataset.i);
+});
+document.addEventListener('keydown', e => {
+  if ($('game').hidden || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (/^[1-9]$/.test(e.key)) { e.preventDefault(); answer(+e.key - 1); }
+});
+function finish() {
+  clearInterval(G.timer);
+  G.timer = 0;
+  $('rScore').textContent = G.score;
+  $('miss').innerHTML = G.miss.length ? `<h2>Mistakes (${G.miss.length})</h2>` + G.miss.map(pr =>
+    `<div class="mi"><div class="t">${QS[pr.qk].name}: point ${pr.ans.map(i => i + 1).join(' or ')}</div><div>${CASES[pr.ck].name}</div>${svg(pr, { ring: true })}<div class="e">${explain(pr)}</div></div>`).join('') : '';
+  show('results');
+  const a = $('againBtn');
+  a.disabled = true;
+  setTimeout(() => { a.disabled = false; a.focus(); }, 600);
+}
+$('startBtn').onclick = start;
+$('againBtn').onclick = start;
+$('setupBtn').onclick = () => show('setup');
+</script>
+</body>
+</html>
